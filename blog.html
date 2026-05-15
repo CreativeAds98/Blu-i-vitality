@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Blu-I-Vitality Lounge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a3a8c;
+    --navy-dark: #102060;
+    --blue: #2563b8;
+    --teal: #18b8d0;
+    --sky-pale: #f5faff;
+    --white: #ffffff;
+    --text-dark: #1a2a4a;
+    --text-mid: #4a6080;
+    --text-light: #7a9ab8;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Nunito',sans-serif;font-weight:300;background:var(--white);color:var(--text-dark);overflow-x:hidden;}
+
+  /* ── NAVBAR ── */
+  nav{
+    position:sticky;top:0;z-index:999;
+    background:rgba(255,255,255,0.97);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(200,220,240,0.25);
+    box-shadow:0 2px 20px rgba(26,58,140,0.06);
+    height:74px;display:flex;align-items:center;
+    padding:0 44px;gap:0;
+  }
+  .nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:44px;transform:translateY(-6px);transition:opacity .2s;}
+  .nav-logo:hover{opacity:.85;}
+  .logo-icon-wrap{display:flex;align-items:center;justify-content:center;}
+  .logo-hbird{height:76px;width:auto;object-fit:contain;display:block;}
+  .nav-links{display:flex;list-style:none;gap:4px;flex:1;justify-content:center;align-items:center;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--text-mid);text-decoration:none;padding:6px 11px;border-radius:6px;transition:color 0.2s;white-space:nowrap;position:relative;}
+  .nav-links a.active{color:var(--navy);font-weight:700;}
+  .nav-links a.active::after{content:'';position:absolute;bottom:-3px;left:11px;right:11px;height:2.5px;background:var(--blue);border-radius:2px;}
+  .nav-links a:hover{color:var(--blue);}
+  .nav-book{
+    display:flex;align-items:center;gap:8px;
+    background:linear-gradient(135deg,#2563b8,#1a3a8c);
+    color:white!important;font-size:14.5px;font-weight:700;font-family:'Nunito',sans-serif;
+    padding:10px 24px;border-radius:50px;text-decoration:none;
+    box-shadow:0 6px 22px rgba(37,99,184,0.38);
+    transition:all 0.25s ease;white-space:nowrap;flex-shrink:0;margin-left:8px;
+  }
+  .nav-book:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,99,184,0.48);}
+  .nav-book svg{width:15px;height:15px;}
+  .nav-menu-btn{
+    width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(26,58,140,0.18);
+    background:white;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    color:var(--navy);flex-shrink:0;margin-left:10px;transition:all 0.2s;
+  }
+  .nav-menu-btn:hover{border-color:var(--blue);color:var(--blue);}
+
+  /* ── HERO ── */
+  .blog-hero{
+    background: linear-gradient(145deg, #0d1f55 0%, #1a3a8c 55%, #1a6fa8 100%);
+    padding: 96px 80px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-hero::before{
+    content:'';position:absolute;inset:0;
+    background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(24,184,208,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 50% at 10% 80%, rgba(37,99,184,0.25) 0%, transparent 60%);
+  }
+  .blog-hero::after{
+    content:'';position:absolute;inset:0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+  .blog-hero-inner{position:relative;z-index:1;max-width:700px;}
+  .blog-hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;
+    color:rgba(125,216,240,0.9);margin-bottom:20px;
+  }
+  .blog-hero-eyebrow span{width:28px;height:1.5px;background:rgba(125,216,240,0.7);display:inline-block;}
+  .blog-hero h1{
+    font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,58px);font-weight:700;
+    color:white;line-height:1.15;margin-bottom:18px;
+  }
+  .blog-hero h1 em{font-style:italic;color:#7dd8f0;}
+  .blog-hero p{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:520px;}
+
+  /* ── FILTER BAR ── */
+  .filter-bar{
+    background:white;border-bottom:1px solid rgba(200,220,240,0.4);
+    padding:0 80px;display:flex;align-items:center;gap:0;
+    position:sticky;top:74px;z-index:90;
+    box-shadow:0 2px 12px rgba(26,58,140,0.04);
+  }
+  .filter-tabs{display:flex;gap:0;flex:1;overflow-x:auto;scrollbar-width:none;}
+  .filter-tabs::-webkit-scrollbar{display:none;}
+  .ftab{
+    font-size:13.5px;font-weight:600;color:var(--text-mid);
+    padding:18px 18px 16px;border:none;background:none;cursor:pointer;
+    white-space:nowrap;border-bottom:2.5px solid transparent;
+    transition:all 0.2s;font-family:'Nunito',sans-serif;
+  }
+  .ftab:hover{color:var(--navy);}
+  .ftab.active{color:var(--navy);border-bottom-color:var(--blue);}
+  .filter-search{
+    display:flex;align-items:center;gap:8px;
+    border:1.5px solid rgba(200,220,240,0.6);border-radius:50px;
+    padding:7px 16px;background:var(--sky-pale);
+    font-size:13px;color:var(--text-mid);font-family:'Nunito',sans-serif;
+    flex-shrink:0;
+  }
+  .filter-search svg{width:14px;height:14px;opacity:0.5;flex-shrink:0;}
+  .filter-search input{border:none;background:none;outline:none;font-size:13px;color:var(--text-dark);font-family:'Nunito',sans-serif;width:150px;}
+  .filter-search input::placeholder{color:var(--text-light);}
+
+  /* ── LAYOUT ── */
+  .blog-wrap{max-width:1260px;margin:0 auto;padding:64px 40px 100px;}
+  .blog-grid-top{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px;}
+  .blog-grid-main{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:64px;}
+
+  /* ── FEATURED CARD ── */
+  .card-featured{
+    background:white;border-radius:20px;overflow:hidden;
+    border:1px solid rgba(200,220,240,0.4);
+    box-shadow:0 4px 24px rgba(26,58,140,0.06);
+    transition:all 0.3s ease;cursor:pointer;
+    display:flex;flex-direction:column;
+  }
+  .card-featured:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(26,58,140,0.13);}
+  .card-featured-img{
+    height:240px;position:relative;overflow:hidden;
+    background:linear-gradient(135deg, #1a3a8c, #18b8d0);
+    flex-shrink:0;
+  }
+  .card-feat-badge{
+    position:absolute;top:16px;left:16px;z-index:2;
+    background:rgba(24,184,208,0.92);backdrop-filter:blur(8px);
+    font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;
+    color:white;padding:5px 12px;border-radius:50px;
+  }
+  .card-featured-body{padding:28px 28px 24px;flex:1;display:flex;flex-direction:column;}
+  .card-meta{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+  .card-tag{font-size:10.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);}
+  .card-dot{width:3px;height:3px;border-radius:50%;background:var(--text-light);}
+  .card-date{font-size:12px;color:var(--text-light);font-weight:500;}
+  .card-featured h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:12px;}
+  .card-featured p{font-size:14px;color:var(--text-mid);line-height:1.7;flex:1;margin-bottom:20px;}
+  .card-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(200,220,240,0.35);padding-top:18px;}
+  .card-author{display:flex;align-items:center;gap:9px;}
+  .avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;}
+  .author-name{font-size:12.5px;font-weight:600;color:var(--text-dark);}
+  .read-more{font-size:12px;font-weight:700;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:5px;letter-spacing:0.04em;transition:gap 0.2s;}
+  .read-more:hover{gap:8px;}
+
+  /* ── STANDARD CARD ── */
+  .card{
+    background:white;border-radius:16px;overflow:hidden;
+    border:1px solid rgba(200,220,240,0.4);
+    box-shadow:0 3px 16px rgba(26,58,140,0.05);
+    transition:all 0.3s ease;cursor:pointer;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(26,58,140,0.11);}
+  .card-img{
+    height:180px;position:relative;overflow:hidden;flex-shrink:0;
+  }
+  .card-img-bg{
+    width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:48px;
+    transition:transform 0.4s ease;
+  }
+  .card:hover .card-img-bg{transform:scale(1.06);}
+  .card-body{padding:22px 22px 18px;flex:1;display:flex;flex-direction:column;}
+  .card h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:9px;}
+  .card p{font-size:13px;color:var(--text-mid);line-height:1.65;flex:1;margin-bottom:16px;}
+  .card-footer-sm{display:flex;align-items:center;justify-content:space-between;}
+  .read-time{font-size:11.5px;color:var(--text-light);font-weight:500;display:flex;align-items:center;gap:5px;}
+  .read-time svg{width:12px;height:12px;}
+
+  /* ── CARD ILLUSTRATION BGs ── */
+  .bg-iv{background:linear-gradient(135deg,#0d2a6b 0%,#1e5faa 50%,#18b8d0 100%);}
+  .bg-hydrate{background:linear-gradient(135deg,#0a4060 0%,#0e7ab5 60%,#7dd8f0 100%);}
+  .bg-beauty{background:linear-gradient(135deg,#3a1060 0%,#7b3faf 60%,#e087e0 100%);}
+  .bg-energy{background:linear-gradient(135deg,#0e4020 0%,#1a8c50 60%,#4fd890 100%);}
+  .bg-stress{background:linear-gradient(135deg,#402010 0%,#b86020 60%,#f0c060 100%);}
+  .bg-immune{background:linear-gradient(135deg,#102060 0%,#2060c0 50%,#60b8f0 100%);}
+  .bg-feat1{background:linear-gradient(135deg,#0d2252 0%,#1a4a9c 40%,#18b8d0 100%);}
+  .bg-feat2{background:linear-gradient(135deg,#1a0a40 0%,#4a1a9a 50%,#c060e0 100%);}
+
+  /* ── ICON BLOBS ── */
+  .icon-blob{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:52px;
+  }
+  .icon-blob::before{
+    content:'';position:absolute;width:90px;height:90px;border-radius:40% 60% 55% 45% / 45% 55% 60% 40%;
+    background:rgba(255,255,255,0.08);
+  }
+
+  /* ── SIDEBAR / NEWSLETTER ── */
+  .blog-layout{display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start;}
+  .sidebar{}
+  .sidebar-widget{
+    background:white;border-radius:16px;border:1px solid rgba(200,220,240,0.4);
+    padding:28px;margin-bottom:24px;
+    box-shadow:0 3px 16px rgba(26,58,140,0.04);
+  }
+  .sw-title{font-size:11.5px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--navy);margin-bottom:20px;}
+  
+  /* Newsletter widget */
+  .newsletter-widget{
+    background:linear-gradient(145deg,#0d1f55,#1a3a8c);
+    border-radius:16px;padding:32px;margin-bottom:24px;overflow:hidden;position:relative;
+  }
+  .newsletter-widget::before{
+    content:'';position:absolute;right:-30px;top:-30px;
+    width:120px;height:120px;border-radius:50%;
+    background:rgba(24,184,208,0.15);
+  }
+  .newsletter-widget::after{
+    content:'';position:absolute;right:20px;bottom:-40px;
+    width:80px;height:80px;border-radius:50%;
+    background:rgba(125,216,240,0.08);
+  }
+  .nw-icon{font-size:28px;margin-bottom:14px;}
+  .nw-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;margin-bottom:8px;}
+  .nw-desc{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:20px;}
+  .nw-input{
+    width:100%;padding:11px 16px;border-radius:10px;
+    border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);
+    color:white;font-size:13px;font-family:'Nunito',sans-serif;
+    outline:none;margin-bottom:10px;transition:border-color 0.2s;
+  }
+  .nw-input::placeholder{color:rgba(255,255,255,0.35);}
+  .nw-input:focus{border-color:rgba(125,216,240,0.6);}
+  .nw-btn{
+    width:100%;padding:11px;border-radius:10px;
+    background:linear-gradient(135deg,#18b8d0,#0e8faa);
+    color:white;font-size:13px;font-weight:700;font-family:'Nunito',sans-serif;
+    border:none;cursor:pointer;letter-spacing:0.06em;transition:all 0.2s;
+  }
+  .nw-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(24,184,208,0.4);}
+
+  /* Popular posts */
+  .pop-post{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid rgba(200,220,240,0.3);}
+  .pop-post:last-child{border-bottom:none;padding-bottom:0;}
+  .pop-thumb{
+    width:56px;height:56px;border-radius:10px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:22px;
+  }
+  .pop-info{}
+  .pop-tag{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;}
+  .pop-title{font-size:13.5px;font-weight:600;color:var(--text-dark);line-height:1.4;}
+
+  /* Tags cloud */
+  .tags-cloud{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag-pill{
+    font-size:12px;font-weight:600;color:var(--blue);
+    background:rgba(37,99,184,0.07);
+    padding:5px 14px;border-radius:50px;border:1px solid rgba(37,99,184,0.12);
+    cursor:pointer;transition:all 0.2s;
+  }
+  .tag-pill:hover{background:var(--blue);color:white;border-color:var(--blue);}
+
+  /* ── PAGINATION ── */
+  .pagination{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:20px;}
+  .pg-btn{
+    width:38px;height:38px;border-radius:10px;border:1.5px solid rgba(200,220,240,0.6);
+    background:white;font-size:13.5px;font-weight:600;color:var(--text-mid);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    font-family:'Nunito',sans-serif;transition:all 0.2s;
+  }
+  .pg-btn:hover{border-color:var(--blue);color:var(--blue);}
+  .pg-btn.active{background:var(--blue);color:white;border-color:var(--blue);}
+  .pg-arrow{
+    width:38px;height:38px;border-radius:10px;border:1.5px solid rgba(200,220,240,0.6);
+    background:white;display:flex;align-items:center;justify-content:center;
+    cursor:pointer;color:var(--text-mid);transition:all 0.2s;
+  }
+  .pg-arrow:hover{border-color:var(--blue);color:var(--blue);}
+
+  /* ── STATS BANNER ── */
+  .stats-banner{
+    background:var(--sky-pale);border-radius:20px;
+    padding:40px 48px;margin-bottom:28px;
+    display:flex;gap:0;align-items:center;
+    border:1px solid rgba(200,220,240,0.5);
+  }
+  .stat-item{flex:1;text-align:center;position:relative;}
+  .stat-item+.stat-item::before{
+    content:'';position:absolute;left:0;top:20%;height:60%;
+    width:1px;background:rgba(200,220,240,0.7);
+  }
+  .stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--navy);line-height:1;}
+  .stat-label{font-size:12px;font-weight:600;color:var(--text-light);letter-spacing:0.1em;text-transform:uppercase;margin-top:6px;}
+
+  /* ── FOOTER ── */
+  footer{background:#0b1a40;color:rgba(255,255,255,0.65);padding:64px 80px 36px;}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:52px;margin-bottom:52px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,0.07);}
+  .foot-brand{font-family:'Great Vibes',cursive;font-size:26px;color:white;margin-bottom:3px;}
+  .foot-brand .blu{color:#7dd8f0;}
+  .foot-brand-sub{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.33);margin-bottom:18px;}
+  .foot-desc{font-size:13px;line-height:1.8;color:rgba(255,255,255,0.38);max-width:240px;margin-bottom:24px;}
+  .foot-socials{display:flex;gap:9px;}
+  .fsoc{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);text-decoration:none;font-size:11px;font-weight:700;transition:all 0.25s;}
+  .fsoc:hover{border-color:#7dd8f0;color:#7dd8f0;}
+  .foot-col-ttl{font-size:11.5px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:white;margin-bottom:20px;}
+  .foot-links{list-style:none;}
+  .foot-links li{margin-bottom:12px;}
+  .foot-links a{font-size:13px;color:rgba(255,255,255,0.38);text-decoration:none;transition:color 0.25s;}
+  .foot-links a:hover{color:#7dd8f0;}
+  .foot-btm{display:flex;justify-content:space-between;align-items:center;}
+  .foot-copy{font-size:12px;color:rgba(255,255,255,0.23);}
+  .foot-legal{display:flex;gap:24px;}
+  .foot-legal a{font-size:12px;color:rgba(255,255,255,0.23);text-decoration:none;}
+  .foot-legal a:hover{color:white;}
+
+  /* ── SCROLL REVEAL ── */
+  .sr{opacity:0;transform:translateY(26px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .sr.in{opacity:1;transform:translateY(0);}
+  .d1{transition-delay:0.06s;} .d2{transition-delay:0.14s;} .d3{transition-delay:0.22s;}
+  .d4{transition-delay:0.30s;} .d5{transition-delay:0.38s;} .d6{transition-delay:0.46s;}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon-wrap">
+      <img class="logo-hbird" src="assets/logo.png" alt="Blu-I-Vitality Lounge">
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="service.html">Services</a></li>
+    <li><a href="">Membership</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="index.html#booking" class="nav-book">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+      <rect x="3" y="4" width="18" height="18" rx="2.5"/>
+      <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+    </svg>
+    Book Now
+  </a>
+
+</nav>
+
+<!-- BLOG HERO -->
+<section class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="blog-hero-eyebrow">
+      <span></span> Wellness Insights <span></span>
+    </div>
+    <h1>The <em>Vitality</em> Blog</h1>
+    <p>Expert guidance on IV therapy, hydration science, and holistic wellness — crafted by our team of certified practitioners to help you thrive.</p>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar" id="filterBar">
+  <div class="filter-tabs">
+    <button class="ftab active" onclick="filterPosts('all',this)">All Articles</button>
+    <button class="ftab" onclick="filterPosts('iv',this)">IV Therapy</button>
+    <button class="ftab" onclick="filterPosts('hydration',this)">Hydration</button>
+    <button class="ftab" onclick="filterPosts('wellness',this)">Wellness</button>
+    <button class="ftab" onclick="filterPosts('beauty',this)">Beauty</button>
+    <button class="ftab" onclick="filterPosts('nutrition',this)">Nutrition</button>
+    <button class="ftab" onclick="filterPosts('lifestyle',this)">Lifestyle</button>
+  </div>
+  <div class="filter-search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <input type="text" placeholder="Search articles…" id="searchInput">
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="blog-wrap">
+
+  <!-- Stats Banner -->
+  <div class="stats-banner sr">
+    <div class="stat-item">
+      <div class="stat-num">48+</div>
+      <div class="stat-label">Articles</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Expert Authors</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Topics Covered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2k+</div>
+      <div class="stat-label">Monthly Readers</div>
+    </div>
+  </div>
+
+  <!-- Blog Layout: Articles + Sidebar -->
+  <div class="blog-layout">
+    <div>
+
+      <!-- Featured 2-column row -->
+      <div class="blog-grid-top sr d1">
+
+        <!-- Featured Card 1 -->
+        <div class="card-featured" data-cat="iv">
+          <div class="card-featured-img bg-feat1">
+            <div class="card-feat-badge">Featured</div>
+            <div class="icon-blob">💧</div>
+          </div>
+          <div class="card-featured-body">
+            <div class="card-meta">
+              <span class="card-tag">IV Therapy</span>
+              <span class="card-dot"></span>
+              <span class="card-date">May 10, 2026</span>
+            </div>
+            <h2>The Science Behind Myers' Cocktail: Why It's Our Most Requested Drip</h2>
+            <p>From fatigue relief to immune support, the Myers' Cocktail has become a cornerstone of IV wellness. We break down what's inside and why it works so effectively.</p>
+            <div class="card-footer">
+              <div class="card-author">
+                <div class="avatar">DR</div>
+                <span class="author-name">Dr. Rachel Mears</span>
+              </div>
+              <a href="#" class="read-more">Read more →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Card 2 -->
+        <div class="card-featured" data-cat="wellness">
+          <div class="card-featured-img bg-feat2">
+            <div class="card-feat-badge">Editor's Pick</div>
+            <div class="icon-blob">✨</div>
+          </div>
+          <div class="card-featured-body">
+            <div class="card-meta">
+              <span class="card-tag">Wellness</span>
+              <span class="card-dot"></span>
+              <span class="card-date">May 4, 2026</span>
+            </div>
+            <h2>5 Signs Your Body Is Crying Out for a Deep Hydration Reset</h2>
+            <p>Chronic dehydration often hides behind symptoms we mistakenly attribute to stress or poor sleep. Learn to recognise the telltale signs — and how to address them quickly.</p>
+            <div class="card-footer">
+              <div class="card-author">
+                <div class="avatar">SL</div>
+                <span class="author-name">Sofia Laurent, RN</span>
+              </div>
+              <a href="#" class="read-more">Read more →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3-column article grid -->
+      <div class="blog-grid-main" id="articleGrid">
+
+        <div class="card sr d1" data-cat="iv">
+          <div class="card-img">
+            <div class="card-img-bg bg-iv icon-blob">🩸</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">IV Therapy</span>
+              <span class="card-dot"></span>
+              <span class="card-date">Apr 28, 2026</span>
+            </div>
+            <h3>NAD+ IV Therapy: The Anti-Aging Drip Everyone Is Talking About</h3>
+            <p>Cellular repair, mental clarity, and renewed energy — explore the science of NAD+ and whether it's right for you.</p>
+            <div class="card-footer-sm">
+              <span class="read-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg> 6 min read</span>
+              <a href="#" class="read-more">Read →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card sr d2" data-cat="hydration">
+          <div class="card-img">
+            <div class="card-img-bg bg-hydrate icon-blob">🫧</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">Hydration</span>
+              <span class="card-dot"></span>
+              <span class="card-date">Apr 22, 2026</span>
+            </div>
+            <h3>Oral vs. IV Hydration: Which One Actually Rehydrates You Faster?</h3>
+            <p>The gut absorbs water differently than a direct IV infusion. We compare absorption rates, timing, and when each approach makes sense.</p>
+            <div class="card-footer-sm">
+              <span class="read-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg> 5 min read</span>
+              <a href="#" class="read-more">Read →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card sr d3" data-cat="beauty">
+          <div class="card-img">
+            <div class="card-img-bg bg-beauty icon-blob">💜</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">Beauty</span>
+              <span class="card-dot"></span>
+              <span class="card-date">Apr 15, 2026</span>
+            </div>
+            <h3>Glutathione Drips for Radiant Skin: What to Expect on Your First Visit</h3>
+            <p>The "master antioxidant" is trending in aesthetic wellness. We walk you through the process, results timeline, and who benefits most.</p>
+            <div class="card-footer-sm">
+              <span class="read-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg> 7 min read</span>
+              <a href="#" class="read-more">Read →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card sr d4" data-cat="wellness">
+          <div class="card-img">
+            <div class="card-img-bg bg-energy icon-blob">⚡</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">Wellness</span>
+              <span class="card-dot"></span>
+              <span class="card-date">Apr 8, 2026</span>
+            </div>
+            <h3>Recovering from a Workout? Here's How B12 Boosters Speed Up Muscle Repair</h3>
+            <p>Athletes and fitness enthusiasts are incorporating B12 injections into their recovery stack. Here's the evidence behind the trend.</p>
+            <div class="card-footer-sm">
+              <span class="read-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg> 4 min read</span>
+              <a href="#" class="read-more">Read →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card sr d5" data-cat="nutrition">
+          <div class="card-img">
+            <div class="card-img-bg bg-stress icon-blob">🍊</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">Nutrition</span>
+              <span class="card-dot"></span>
+              <span class="card-date">Apr 1, 2026</span>
+            </div>
+            <h3>Vitamin C Mega-Dosing: What High-Dose IV Infusions Can (and Can't) Do</h3>
+            <p>High-dose Vitamin C through IV delivers concentrations impossible orally. We separate the facts from the hype around immune and energy benefits.</p>
+            <div class="card-footer-sm">
+              <span class="read-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg> 8 min read</span>
+              <a href="#" class="read-more">Read →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card sr d6" data-cat="lifestyle">
+          <div class="card-img">
+            <div class="card-img-bg bg-immune icon-blob">🛡️</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">Lifestyle</span>
+              <span class="card-dot"></span>
+              <span class="card-date">Mar 24, 2026</span>
+            </div>
+            <h3>Preparing for a Long-Haul Flight? The Pre-Travel Immunity Drip Protocol</h3>
+            <p>Airports and cabins are hotbeds for viral exposure. Our pre-travel IV protocol gives your immune system everything it needs before you board.</p>
+            <div class="card-footer-sm">
+              <span class="read-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg> 5 min read</span>
+              <a href="#" class="read-more">Read →</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /grid -->
+
+      <!-- Pagination -->
+      <div class="pagination sr">
+        <button class="pg-arrow" title="Previous">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="pg-btn active">1</button>
+        <button class="pg-btn">2</button>
+        <button class="pg-btn">3</button>
+        <span style="color:var(--text-light);padding:0 4px;">…</span>
+        <button class="pg-btn">8</button>
+        <button class="pg-arrow" title="Next">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+    </div><!-- /articles col -->
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- Newsletter -->
+      <div class="newsletter-widget sr d1">
+        <div class="nw-icon">💌</div>
+        <div class="nw-title">Stay in the Loop</div>
+        <div class="nw-desc">Weekly wellness tips, new treatment guides, and member-only offers — straight to your inbox.</div>
+        <input class="nw-input" type="email" placeholder="Your email address">
+        <button class="nw-btn">Subscribe for Free</button>
+      </div>
+
+      <!-- Popular Posts -->
+      <div class="sidebar-widget sr d2">
+        <div class="sw-title">Popular This Month</div>
+
+        <div class="pop-post">
+          <div class="pop-thumb bg-iv" style="border-radius:10px;"></div>
+          <div class="pop-info">
+            <div class="pop-tag">IV Therapy</div>
+            <div class="pop-title">Your First IV Drip: A Complete Step-by-Step Guide</div>
+          </div>
+        </div>
+        <div class="pop-post">
+          <div class="pop-thumb bg-hydrate" style="border-radius:10px;"></div>
+          <div class="pop-info">
+            <div class="pop-tag">Hydration</div>
+            <div class="pop-title">How Much Water Do You Actually Need Each Day?</div>
+          </div>
+        </div>
+        <div class="pop-post">
+          <div class="pop-thumb bg-beauty" style="border-radius:10px;"></div>
+          <div class="pop-info">
+            <div class="pop-tag">Beauty</div>
+            <div class="pop-title">The Glow Drip: Our Most-Loved Skin Infusion Explained</div>
+          </div>
+        </div>
+        <div class="pop-post">
+          <div class="pop-thumb bg-energy" style="border-radius:10px;"></div>
+          <div class="pop-info">
+            <div class="pop-tag">Wellness</div>
+            <div class="pop-title">Magnesium IV: The Muscle Relaxant You Didn't Know You Needed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="sidebar-widget sr d3">
+        <div class="sw-title">Browse by Topic</div>
+        <div class="tags-cloud">
+          <span class="tag-pill">IV Drips</span>
+          <span class="tag-pill">Hydration</span>
+          <span class="tag-pill">Immunity</span>
+          <span class="tag-pill">Skin Glow</span>
+          <span class="tag-pill">B12</span>
+          <span class="tag-pill">NAD+</span>
+          <span class="tag-pill">Recovery</span>
+          <span class="tag-pill">Detox</span>
+          <span class="tag-pill">Vitamin C</span>
+          <span class="tag-pill">Energy</span>
+          <span class="tag-pill">Glutathione</span>
+          <span class="tag-pill">Travel Wellness</span>
+        </div>
+      </div>
+
+      <!-- CTA Widget -->
+      <div class="sidebar-widget sr d4" style="background:var(--sky-pale);border-color:rgba(37,99,184,0.12);">
+        <div style="font-size:28px;margin-bottom:12px;">🗓️</div>
+        <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;">Ready to experience it yourself?</div>
+        <p style="font-size:13px;color:var(--text-mid);line-height:1.65;margin-bottom:18px;">Book a free 10-minute consultation with our wellness team and find your perfect drip.</p>
+        <a href="index.html#booking" style="display:block;text-align:center;background:linear-gradient(135deg,#2563b8,#1a3a8c);color:white;padding:11px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:0.04em;transition:all 0.2s;">Book a Free Consult</a>
+      </div>
+
+    </aside>
+  </div><!-- /blog-layout -->
+
+</div><!-- /blog-wrap -->
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand"><span class="blu">Blu</span>-I-Vitality</div>
+      <div class="foot-brand-sub">Lounge</div>
+      <p class="foot-desc">Your sanctuary for hydration, relaxation, and holistic wellness therapies designed to refresh your body, mind, and spirit.</p>
+      <div class="foot-socials">
+        <a href="#" class="fsoc">f</a><a href="#" class="fsoc">in</a><a href="#" class="fsoc">ig</a><a href="#" class="fsoc">yt</a>
+      </div>
+    </div>
+    <div>
+      <div class="foot-col-ttl">Services</div>
+      <ul class="foot-links">
+        <li><a href="#">IV Therapy</a></li><li><a href="#">Hydration Therapy</a></li>
+        <li><a href="#">Wellness Boosters</a></li><li><a href="#">Relax & Recharge</a></li><li><a href="#">Immunity Drips</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-ttl">Company</div>
+      <ul class="foot-links">
+        <li><a href="#">About Us</a></li><li><a href="#">Our Team</a></li>
+        <li><a href="#">Membership</a></li><li><a href="#">Gallery</a></li><li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-ttl">Contact</div>
+      <ul class="foot-links">
+        <li><a href="#">📍 176 /2, 4th Floor, Renaissance Terrace, near, Thirugnanasambandam Rd, opp. Bishop Appasamy College of Arts & Science, Race Course, Gopalapuram, Coimbatore, Tamil Nadu 641018</a></li>
+        <li><a href="#">📞 (555) 123-4567</a></li>
+        <li><a href="#">✉️ hello@bluvitality.com</a></li>
+        <li><a href="#">Mon–Sat: 8am – 8pm</a></li>
+        <li><a href="#">Sunday: 10am – 5pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <div class="foot-copy">© 2026 Blu-I-Vitality Lounge. All rights reserved.</div>
+    <div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies</a></div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll shadow
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 20 ? '0 4px 28px rgba(26,58,140,0.1)' : '0 2px 20px rgba(26,58,140,0.06)';
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.06});
+  document.querySelectorAll('.sr').forEach(el => io.observe(el));
+
+  // Filter tabs
+  function filterPosts(cat, btn) {
+    document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#articleGrid .card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Search
+  document.getElementById('searchInput').addEventListener('input', function() {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('#articleGrid .card').forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = (!q || text.includes(q)) ? 'flex' : 'none';
+    });
+  });
+
+  // Pagination click
+  document.querySelectorAll('.pg-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.pg-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

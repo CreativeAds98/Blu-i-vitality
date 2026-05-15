@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Blu-I-Vitality Lounge</title>
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1a3a8c;--navy-dark:#0d1f55;--blue:#2563b8;
+  --teal:#18b8d0;--teal-light:#e0f7fb;
+  --white:#ffffff;--off:#f8faff;
+  --text-dark:#1a2a4a;--text-mid:#4a6080;--text-light:#7a9ab8;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;font-weight:300;background:#ffffff;color:var(--text-dark);overflow-x:hidden;}
+
+/* ── NAVBAR ── */
+nav{
+  position:sticky;top:0;z-index:999;
+  background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(200,220,240,0.3);box-shadow:0 2px 20px rgba(26,58,140,0.06);
+  height:74px;display:flex;align-items:center;padding:0 44px;
+}
+.nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:44px;transform:translateY(-6px);transition:opacity .2s;}
+.nav-logo:hover{opacity:.85;}
+.logo-hbird{height:76px;width:auto;object-fit:contain;display:block;}
+.nav-links{display:flex;list-style:none;gap:4px;flex:1;justify-content:center;align-items:center;}
+.nav-links a{font-size:14px;font-weight:500;color:var(--text-mid);text-decoration:none;padding:6px 12px;border-radius:6px;transition:color 0.2s;white-space:nowrap;position:relative;}
+.nav-links a.active{color:var(--navy);font-weight:700;}
+.nav-links a.active::after{content:'';position:absolute;bottom:-3px;left:12px;right:12px;height:2px;background:var(--teal);border-radius:2px;}
+.nav-links a:hover{color:var(--blue);}
+.nav-book{
+  display:flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--teal),#0e8faa);
+  color:white!important;font-size:14px;font-weight:600;
+  padding:10px 24px;border-radius:50px;text-decoration:none;
+  box-shadow:0 6px 22px rgba(24,184,208,0.35);
+  transition:all 0.25s ease;white-space:nowrap;flex-shrink:0;margin-left:8px;
+}
+.nav-book:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(24,184,208,0.5);}
+.nav-book svg{width:15px;height:15px;}
+
+/* ── HERO ── */
+.hero{
+  min-height:520px;display:flex;align-items:center;
+  padding:100px 80px 80px;position:relative;overflow:hidden;
+  background:linear-gradient(145deg,#06101e 0%,#0d1f55 50%,#0a3060 100%);
+}
+.hero-mesh{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 70% at 80% 30%,rgba(24,184,208,0.18) 0%,transparent 65%),
+    radial-gradient(ellipse 40% 50% at 10% 80%,rgba(37,99,184,0.20) 0%,transparent 60%);
+}
+.hero-grid-lines{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+.hero-content{position:relative;z-index:2;max-width:680px;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:22px;
+}
+.hero-eyebrow span{width:32px;height:1px;background:var(--teal);}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,6vw,72px);font-weight:300;
+  color:white;line-height:1.08;margin-bottom:22px;letter-spacing:-0.01em;
+}
+.hero-title em{font-style:italic;color:#7dd8f0;}
+.hero-title strong{font-weight:600;}
+.hero-desc{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.85;max-width:500px;margin-bottom:40px;}
+.hero-scroll-chips{display:flex;flex-wrap:wrap;gap:8px;}
+.hchip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.7);font-size:12px;font-weight:500;
+  padding:7px 16px;border-radius:50px;cursor:pointer;text-decoration:none;
+  transition:all 0.22s;backdrop-filter:blur(8px);
+}
+.hchip:hover{background:rgba(24,184,208,0.15);border-color:rgba(24,184,208,0.5);color:white;}
+.hero-number-bg{
+  position:absolute;right:-40px;top:50%;transform:translateY(-50%);
+  font-family:'Cormorant Garamond',serif;font-size:320px;font-weight:700;
+  color:rgba(255,255,255,0.025);line-height:1;pointer-events:none;user-select:none;
+  letter-spacing:-0.05em;
+}
+
+/* ── SERVICES STRIP LAYOUT ── */
+.services-wrap{position:relative;}
+
+/* Each service = full-bleed horizontal strip */
+.svc-strip{
+  position:relative;min-height:600px;
+  display:grid;grid-template-columns:1fr 1fr;
+  overflow:hidden;
+}
+.svc-strip:nth-child(even) .svc-strip-text{order:2;}
+.svc-strip:nth-child(even) .svc-strip-visual{order:1;}
+
+/* Text half */
+.svc-strip-text{
+  position:relative;z-index:2;
+  padding:80px 72px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.svc-strip-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:120px;font-weight:700;line-height:1;
+  color:rgba(26,58,140,0.06);
+  position:absolute;top:40px;left:52px;
+  pointer-events:none;user-select:none;letter-spacing:-0.04em;
+}
+.svc-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10.5px;font-weight:600;letter-spacing:0.26em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:16px;position:relative;z-index:1;
+}
+.svc-eyebrow-line{width:22px;height:1.5px;background:var(--teal);}
+.svc-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,3.5vw,48px);font-weight:600;
+  color:var(--navy);line-height:1.1;margin-bottom:20px;position:relative;z-index:1;
+}
+.svc-name em{font-style:italic;font-weight:300;color:#7dd8f0;}
+.svc-desc{
+  font-size:15px;color:var(--text-mid);
+  line-height:1.85;margin-bottom:28px;position:relative;z-index:1;
+  max-width:440px;
+}
+
+/* Pill tags */
+.svc-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px;position:relative;z-index:1;}
+.spill{
+  font-size:11px;font-weight:600;letter-spacing:0.08em;
+  color:var(--teal);background:rgba(24,184,208,0.10);
+  border:1px solid rgba(24,184,208,0.22);
+  padding:4px 12px;border-radius:50px;
+}
+
+/* Benefits as horizontal ticker-style list */
+.svc-benefits{
+  display:flex;flex-direction:column;gap:9px;
+  margin-bottom:32px;position:relative;z-index:1;
+}
+.sb-row{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:13.5px;color:var(--text-mid);line-height:1.6;
+}
+.sb-icon{
+  width:20px;height:20px;border-radius:6px;flex-shrink:0;margin-top:1px;
+  background:rgba(24,184,208,0.15);border:1px solid rgba(24,184,208,0.3);
+  display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--teal);font-weight:700;
+}
+
+/* Book button */
+.svc-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#2563b8,#1a3a8c);border:none;
+  color:white;font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:600;
+  padding:12px 26px;border-radius:50px;text-decoration:none;
+  transition:all 0.25s;letter-spacing:0.04em;position:relative;z-index:1;
+  width:fit-content;box-shadow:0 6px 20px rgba(37,99,184,0.28);
+}
+.svc-cta:hover{transform:translateX(4px);box-shadow:0 10px 28px rgba(37,99,184,0.42);}
+.svc-cta svg{width:14px;height:14px;transition:transform 0.2s;}
+.svc-cta:hover svg{transform:translateX(3px);}
+
+/* Visual half */
+.svc-strip-visual{
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  min-height:600px;
+}
+.svc-vis-bg{
+  position:absolute;inset:0;
+}
+/* Diagonal cut between halves */
+.svc-strip-text::after{
+  content:'';position:absolute;right:-1px;top:0;bottom:0;
+  width:80px;
+  background:inherit;
+  clip-path:polygon(100% 0,0 50%,100% 100%);
+  z-index:3;
+}
+/* For even strips, mirror the cut */
+.svc-strip:nth-child(even) .svc-strip-visual::after{
+  content:'';position:absolute;right:-1px;top:0;bottom:0;
+  width:80px;clip-path:polygon(0 0,100% 50%,0 100%);
+  background:inherit;z-index:3;
+}
+
+/* ════ INDIVIDUAL STRIP THEMES ════ */
+
+/* 1. IV – Deep Navy */
+#iv-therapy .svc-strip-text{background:#f0f6ff;}
+#iv-therapy .svc-strip-text::after{background:#f0f6ff;}
+#iv-therapy .svc-vis-bg{background:linear-gradient(145deg,#dbeafe,#bfdbfe,#93c5fd);}
+
+/* 2. Ozone – Deep ocean teal */
+#ozone .svc-strip-text{background:#f0fcff;}
+#ozone .svc-strip-text::after{background:#f0fcff;}
+#ozone .svc-vis-bg{background:linear-gradient(145deg,#cffafe,#a5f3fc,#67e8f9);}
+
+/* 3. Hydrogen */
+#hydrogen .svc-strip-text{background:#f5faff;}
+#hydrogen .svc-strip-text::after{background:#f5faff;}
+#hydrogen .svc-vis-bg{background:linear-gradient(145deg,#eff6ff,#dbeafe,#bae6fd);}
+
+/* 4. PRP – Burgundy */
+#prp .svc-strip-text{background:#fff5f7;}
+#prp .svc-strip-text::after{background:#fff5f7;}
+#prp .svc-vis-bg{background:linear-gradient(145deg,#ffe4e6,#fecdd3,#fda4af);}
+
+/* 5. Colon – Deep green */
+#colon .svc-strip-text{background:#f0fff8;}
+#colon .svc-strip-text::after{background:#f0fff8;}
+#colon .svc-vis-bg{background:linear-gradient(145deg,#dcfce7,#bbf7d0,#86efac);}
+
+/* 6. Sauna – Amber fire */
+#sauna .svc-strip-text{background:#fffaf0;}
+#sauna .svc-strip-text::after{background:#fffaf0;}
+#sauna .svc-vis-bg{background:linear-gradient(145deg,#fff7ed,#fed7aa,#fdba74);}
+
+/* 7. Acupuncture – Deep violet */
+#acupuncture .svc-strip-text{background:#faf5ff;}
+#acupuncture .svc-strip-text::after{background:#faf5ff;}
+#acupuncture .svc-vis-bg{background:linear-gradient(145deg,#f3e8ff,#e9d5ff,#d8b4fe);}
+
+/* 8. Yoga – Purple */
+#yoga .svc-strip-text{background:#fdf5ff;}
+#yoga .svc-strip-text::after{background:#fdf5ff;}
+#yoga .svc-vis-bg{background:linear-gradient(145deg,#fdf4ff,#f3e8ff,#e9d5ff);}
+
+/* 9. Diet – Forest */
+#diet .svc-strip-text{background:#f0fff5;}
+#diet .svc-strip-text::after{background:#f0fff5;}
+#diet .svc-vis-bg{background:linear-gradient(145deg,#f0fdf4,#dcfce7,#bbf7d0);}
+
+/* 10. Functional – Emerald */
+#functional .svc-strip-text{background:#f0fffc;}
+#functional .svc-strip-text::after{background:#f0fffc;}
+#functional .svc-vis-bg{background:linear-gradient(145deg,#f0fdfa,#ccfbf1,#99f6e4);}
+
+/* ── GLASS DATA WIDGETS (replace old panels) ── */
+.glass-widget{
+  position:relative;z-index:2;
+  background:rgba(255,255,255,0.88);
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.9);
+  border-radius:24px;padding:32px;
+  width:min(380px,90%);
+  box-shadow:0 24px 60px rgba(26,58,140,0.18);
+}
+.gw-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:600;color:var(--navy);
+  margin-bottom:6px;
+}
+.gw-sub{font-size:12px;color:var(--text-light);margin-bottom:24px;line-height:1.5;}
+
+/* Floating accent orbs inside visual half */
+.vis-orb{
+  position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;opacity:0.3;
+}
+
+/* Stat row */
+.gw-stats{display:flex;gap:0;margin-top:24px;padding-top:20px;border-top:1px solid rgba(26,58,140,0.08);}
+.gws{flex:1;text-align:center;}
+.gws+.gws{border-left:1px solid rgba(26,58,140,0.08);}
+.gws-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--navy);line-height:1;}
+.gws-lbl{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);margin-top:5px;}
+
+/* ── IV ABSORPTION VISUAL ── */
+.iv-bars{display:flex;gap:16px;align-items:flex-end;height:140px;margin-bottom:8px;}
+.iv-col{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;}
+.iv-track{width:100%;height:120px;background:rgba(26,58,140,0.06);border-radius:10px;position:relative;overflow:hidden;display:flex;align-items:flex-end;}
+.iv-fill{width:100%;border-radius:10px;position:relative;overflow:hidden;}
+.iv-fill::after{content:'';position:absolute;top:0;left:0;right:0;height:40%;background:rgba(255,255,255,0.15);}
+.iv-pct{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--navy);}
+.iv-lbl{font-size:11px;color:var(--text-light);font-weight:500;}
+.iv-caption{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-light);text-align:center;margin-top:8px;}
+
+/* ── OZONE RINGS ── */
+.ozone-center-wrap{display:flex;justify-content:center;align-items:center;height:150px;position:relative;margin-bottom:8px;}
+.o-ring{position:absolute;border-radius:50%;border:1px solid rgba(24,184,208,0.3);animation:opulse 3s ease-in-out infinite;}
+.o-ring:nth-child(1){width:50px;height:50px;border-color:rgba(24,184,208,0.9);animation-delay:0s;}
+.o-ring:nth-child(2){width:88px;height:88px;animation-delay:.4s;}
+.o-ring:nth-child(3){width:126px;height:126px;animation-delay:.8s;}
+.o-ring:nth-child(4){width:164px;height:164px;animation-delay:1.2s;}
+@keyframes opulse{0%,100%{opacity:.25}50%{opacity:1}}
+.o-center{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--teal);z-index:1;position:relative;}
+.o-props{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+.o-prop{font-size:11.5px;font-weight:500;color:var(--navy);background:rgba(26,58,140,0.06);border:1px solid rgba(26,58,140,0.12);padding:4px 12px;border-radius:50px;}
+
+/* ── H2 MOLECULE ── */
+.h2-wrap{display:flex;align-items:center;justify-content:center;gap:0;height:120px;position:relative;margin-bottom:16px;}
+.h-atom{width:64px;height:64px;border-radius:50%;background:rgba(37,99,184,0.08);border:2px solid rgba(37,99,184,0.4);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--navy);}
+.h-bond{width:40px;height:3px;background:rgba(37,99,184,0.35);border-radius:3px;position:relative;}
+.h-bond::before,.h-bond::after{content:'';position:absolute;height:2px;width:100%;background:rgba(37,99,184,0.18);border-radius:2px;}
+.h-bond::before{top:-7px;}.h-bond::after{top:8px;}
+.h2-sub{font-size:11px;color:var(--text-light);letter-spacing:0.2em;text-transform:uppercase;text-align:center;}
+.h2-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.h2-tag{font-size:11.5px;color:var(--navy);background:rgba(26,58,140,0.06);border:1px solid rgba(26,58,140,0.12);padding:4px 12px;border-radius:50px;}
+
+/* ── PRP STEPS ── */
+.prp-steps{display:flex;flex-direction:column;gap:0;}
+.prp-row{display:flex;align-items:center;gap:14px;padding:12px 0;}
+.prp-icon-wrap{width:44px;height:44px;border-radius:12px;flex-shrink:0;background:rgba(26,58,140,0.06);border:1px solid rgba(26,58,140,0.12);display:flex;align-items:center;justify-content:center;font-size:20px;}
+.prp-body-ttl{font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:2px;}
+.prp-body-txt{font-size:12px;color:var(--text-light);}
+.prp-connector{width:2px;height:14px;background:rgba(26,58,140,0.12);margin-left:21px;}
+
+/* ── WAVE ── */
+.wave-box{height:110px;background:rgba(24,184,208,0.06);border-radius:14px;overflow:hidden;position:relative;margin-bottom:16px;}
+.wv{position:absolute;width:200%;height:50px;left:-50%;background:rgba(24,184,208,0.12);border-radius:50%;animation:wvmove 3s ease-in-out infinite;}
+.wv:nth-child(1){top:12px;animation-delay:0s;}
+.wv:nth-child(2){top:32px;animation-delay:.6s;background:rgba(24,184,208,0.08);}
+.wv:nth-child(3){top:52px;animation-delay:1.2s;background:rgba(24,184,208,0.06);}
+@keyframes wvmove{0%,100%{transform:translateX(0) scaleY(1)}50%{transform:translateX(4%) scaleY(1.08)}}
+
+/* ── SAUNA THERMOMETER ── */
+.thermo-row{display:flex;gap:24px;align-items:center;margin-bottom:16px;}
+.thermo-body{width:20px;height:100px;background:rgba(240,80,16,0.08);border-radius:10px 10px 0 0;border:1px solid rgba(240,80,16,0.2);position:relative;overflow:hidden;}
+.thermo-fill-bar{position:absolute;bottom:0;left:0;right:0;height:80%;background:linear-gradient(0deg,#e04010,#f0a030);border-radius:0 0 9px 9px;}
+.thermo-bulb-circle{width:30px;height:30px;background:linear-gradient(135deg,#f0a030,#e84010);border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);}
+.thermo-col{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.thermo-temp{font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(255,255,255,0.5);}
+.heat-bars-col{flex:1;display:flex;flex-direction:column;gap:8px;}
+.hbr{display:flex;align-items:center;gap:10px;}
+.hbr-lbl{font-size:11px;color:var(--text-mid);width:72px;text-align:right;flex-shrink:0;}
+.hbr-track{flex:1;height:5px;background:rgba(240,80,16,0.1);border-radius:3px;overflow:hidden;}
+.hbr-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#f0c060,#e84010);}
+
+/* ── MERIDIAN DOTS ── */
+.meri-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;padding:14px;background:rgba(74,24,160,0.06);border-radius:14px;margin-bottom:12px;}
+.m-dot{width:9px;height:9px;border-radius:50%;background:rgba(160,100,240,0.25);transition:all .3s;}
+.m-dot.active{background:#b87df0;box-shadow:0 0 7px rgba(184,125,240,.8);}
+.m-dot.pulse{background:white;animation:dotpulse 2s ease-in-out infinite;}
+@keyframes dotpulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.5}}
+.meri-legend{display:flex;gap:16px;}
+.ml{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-light);}
+.ml-dot{width:7px;height:7px;border-radius:50%;}
+
+/* ── CHAKRAS ── */
+.chakra-list{display:flex;flex-direction:column;gap:7px;}
+.ck-row{display:flex;align-items:center;gap:10px;}
+.ck-circle{width:24px;height:24px;border-radius:50%;flex-shrink:0;border:1.5px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-size:9px;}
+.ck-name{font-size:11.5px;color:var(--text-mid);width:64px;flex-shrink:0;}
+.ck-track{flex:1;height:5px;background:rgba(26,58,140,0.08);border-radius:3px;overflow:hidden;}
+.ck-fill{height:100%;border-radius:3px;}
+
+/* ── DIET PIE ── */
+.diet-row{display:flex;gap:20px;align-items:center;margin-bottom:12px;}
+.diet-pie{width:110px;height:110px;border-radius:50%;flex-shrink:0;
+  background:conic-gradient(#4ecb71 0% 30%,#f0c840 30% 55%,#f07040 55% 75%,#40a8f0 75% 90%,rgba(255,255,255,.12) 90% 100%);
+  border:2px solid rgba(255,255,255,.15);position:relative;}
+.diet-pie::after{content:'';position:absolute;inset:20px;border-radius:50%;background:rgba(8,30,18,0.85);}
+.diet-pie-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1;font-size:22px;}
+.diet-legend{flex:1;display:flex;flex-direction:column;gap:7px;}
+.dl-row{display:flex;align-items:center;gap:8px;}
+.dl-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
+.dl-lbl{font-size:12px;color:var(--text-dark);}
+.dl-pct{font-size:11px;color:var(--text-light);margin-left:auto;}
+
+/* ── PYRAMID ── */
+.pyramid{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;}
+.pyr-row{display:flex;justify-content:center;}
+.pyr-block{display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:500;color:rgba(255,255,255,0.8);border-radius:8px;height:34px;text-align:center;}
+.pyr-1{width:100%;background:rgba(24,184,208,.06);border:1px solid rgba(24,184,208,.12);color:var(--text-mid);}
+.pyr-2{width:82%;background:rgba(24,184,208,.09);border:1px solid rgba(24,184,208,.15);color:var(--text-mid);}
+.pyr-3{width:64%;background:rgba(24,184,208,.12);border:1px solid rgba(24,184,208,.18);color:var(--text-mid);}
+.pyr-4{width:46%;background:rgba(24,184,208,.16);border:1px solid rgba(24,184,208,.22);color:var(--text-mid);}
+.pyr-5{width:30%;background:rgba(24,184,208,0.3);border:1px solid rgba(24,184,208,0.5);color:var(--teal);}
+.pyr-cap{text-align:center;font-size:10px;color:var(--text-light);letter-spacing:0.15em;text-transform:uppercase;margin-top:8px;}
+
+/* ── DIVIDER BETWEEN STRIPS ── */
+.strip-divider{
+  height:1px;background:rgba(255,255,255,0.06);position:relative;
+}
+.strip-divider::before{
+  content:'';position:absolute;left:50%;transform:translateX(-50%);
+  top:-4px;width:8px;height:8px;border-radius:50%;
+  background:var(--teal);box-shadow:0 0 16px rgba(24,184,208,0.6);
+}
+
+/* ── CONDITIONS GRID ── */
+.cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:24px;position:relative;z-index:1;}
+.cond-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-mid);}
+.cond-tick{width:18px;height:18px;border-radius:5px;flex-shrink:0;background:rgba(24,184,208,0.12);border:1px solid rgba(24,184,208,0.3);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--teal);font-weight:700;}
+
+/* ── APP GRID (2x2 inside glass widget) ── */
+.app-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px;}
+.app-item{background:rgba(26,58,140,0.04);border:1px solid rgba(26,58,140,0.1);border-radius:12px;padding:12px 14px;}
+.app-icon{font-size:18px;margin-bottom:7px;}
+.app-ttl{font-size:12.5px;font-weight:600;color:var(--navy);margin-bottom:3px;}
+.app-txt{font-size:11.5px;color:var(--text-light);line-height:1.5;}
+
+/* ── PROCESS STEPS ── */
+.steps-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;position:relative;z-index:1;}
+.step-item{display:flex;gap:12px;align-items:flex-start;}
+.step-n{width:32px;height:32px;border-radius:9px;flex-shrink:0;background:linear-gradient(135deg,var(--teal),#0e8faa);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;color:white;}
+.step-ttl{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:2px;}
+.step-txt{font-size:12px;color:var(--text-light);line-height:1.55;}
+
+/* ── FAQ ── */
+.faq-section{padding:96px 80px;background:#f5faff;position:relative;}
+.faq-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(24,184,208,0.08) 0%,transparent 70%);}
+.faq-head{text-align:center;margin-bottom:60px;position:relative;}
+.faq-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;}
+.faq-eyebrow span{width:22px;height:1px;background:var(--teal);}
+.faq-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--navy);}
+.faq-title em{font-style:italic;color:#7dd8f0;}
+.faqs-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:900px;margin:0 auto;position:relative;}
+.faq-item{
+  background:white;
+  border:1px solid rgba(200,220,240,0.5);
+  border-radius:16px;padding:22px 24px;cursor:pointer;
+  transition:all 0.25s;
+}
+.faq-item:hover{background:white;border-color:rgba(24,184,208,0.35);transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,58,140,0.08);}
+.faq-q{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+.faq-q::after{content:'+';font-size:18px;color:var(--teal);flex-shrink:0;line-height:1;}
+.faq-a{font-size:13px;color:var(--text-mid);line-height:1.75;}
+
+/* ── CTA ── */
+.cta-section{
+  background:linear-gradient(135deg,#040e22 0%,#0d1f55 40%,#0a3060 80%,#083848 100%);
+  padding:96px 80px;text-align:center;position:relative;overflow:hidden;
+}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 60% 50%,rgba(24,184,208,0.20) 0%,transparent 70%);}
+.cta-inner{position:relative;z-index:2;max-width:600px;margin:0 auto;}
+.cta-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;}
+.cta-eyebrow span{width:20px;height:1px;background:var(--teal);}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,58px);font-weight:300;color:white;line-height:1.1;margin-bottom:18px;}
+.cta-title em{font-style:italic;color:#7dd8f0;}
+.cta-desc{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:40px;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:var(--teal);color:white;font-family:'DM Sans',sans-serif;font-size:14.5px;font-weight:600;padding:14px 34px;border-radius:50px;text-decoration:none;box-shadow:0 8px 28px rgba(24,184,208,0.38);transition:all .25s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(24,184,208,0.5);}
+.btn-outline{background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.3);font-family:'DM Sans',sans-serif;font-size:14.5px;font-weight:600;padding:14px 34px;border-radius:50px;text-decoration:none;transition:all .25s;}
+.btn-outline:hover{background:rgba(255,255,255,0.08);border-color:white;}
+
+/* ── FOOTER ── */
+footer{background:#0b1a40;color:rgba(255,255,255,0.55);padding:64px 80px 36px;border-top:1px solid rgba(255,255,255,0.05);}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:52px;margin-bottom:52px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.foot-brand{font-family:'Great Vibes',cursive;font-size:26px;color:white;margin-bottom:3px;}
+.foot-brand .blu{color:#7dd8f0;}
+.foot-brand-sub{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:18px;}
+.foot-desc{font-size:13px;line-height:1.8;color:rgba(255,255,255,0.35);max-width:240px;margin-bottom:24px;}
+.foot-socials{display:flex;gap:9px;}
+.fsoc{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);text-decoration:none;font-size:11px;font-weight:700;transition:all .25s;}
+.fsoc:hover{border-color:var(--teal);color:var(--teal);}
+.foot-col-ttl{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:white;margin-bottom:20px;}
+.foot-links{list-style:none;}
+.foot-links li{margin-bottom:12px;}
+.foot-links a{font-size:13px;color:rgba(255,255,255,0.35);text-decoration:none;transition:color .2s;}
+.foot-links a:hover{color:var(--teal);}
+.foot-btm{display:flex;justify-content:space-between;align-items:center;}
+.foot-copy{font-size:12px;color:rgba(255,255,255,0.2);}
+.foot-legal{display:flex;gap:24px;}
+.foot-legal a{font-size:12px;color:rgba(255,255,255,0.2);text-decoration:none;}
+.foot-legal a:hover{color:white;}
+
+/* ── SCROLL REVEAL ── */
+.sr{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.sr.in{opacity:1;transform:translateY(0);}
+.sr-left{opacity:0;transform:translateX(-30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.sr-left.in{opacity:1;transform:translateX(0);}
+.sr-right{opacity:0;transform:translateX(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.sr-right.in{opacity:1;transform:translateX(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .svc-strip{grid-template-columns:1fr;}
+  .svc-strip-text::after{display:none;}
+  .svc-strip:nth-child(even) .svc-strip-text{order:1;}
+  .svc-strip:nth-child(even) .svc-strip-visual{order:2;}
+  .svc-strip-visual{min-height:300px;}
+  .svc-strip-text{padding:56px 40px;}
+  .hero{padding:70px 40px;}
+  nav{padding:0 24px;}
+  .nav-links{display:none;}
+  .faq-section{padding:64px 40px;}
+  .faqs-grid{grid-template-columns:1fr;}
+  .cta-section{padding:72px 40px;}
+  footer{padding:48px 40px 28px;}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:36px;}
+}
+@media(max-width:640px){
+  .hero-title{font-size:38px;}
+  .svc-name{font-size:28px;}
+  .foot-grid{grid-template-columns:1fr;}
+  .foot-btm{flex-direction:column;gap:12px;text-align:center;}
+  .cond-grid,.app-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon-wrap">
+      <img class="logo-hbird" src="assets/logo.png" alt="Blu-I-Vitality Lounge">
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="#membership">Membership</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="#booking" class="nav-book">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2.5"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Book Now
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-number-bg">10</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span></span> Our Therapies <span></span></div>
+    <h1 class="hero-title">Treatments Designed<br>to <em>Restore</em> <strong>You</strong></h1>
+    <p class="hero-desc">Ten integrative therapies — from cutting-edge IV nutrition to time-honoured acupuncture — each tailored to address the root cause of your health challenges and revitalise your whole self.</p>
+    <div class="hero-scroll-chips">
+      <a href="#iv-therapy" class="hchip">💉 IV Nutrition</a>
+      <a href="#ozone" class="hchip">🫧 Ozone Therapy</a>
+      <a href="#hydrogen" class="hchip">🌬️ Hydrogen</a>
+      <a href="#prp" class="hchip">🩸 PRP</a>
+      <a href="#colon" class="hchip">💧 Colon Hydro</a>
+      <a href="#sauna" class="hchip">🧖 Sauna</a>
+      <a href="#acupuncture" class="hchip">🪡 Acupuncture</a>
+      <a href="#yoga" class="hchip">🧘 Yoga Therapy</a>
+      <a href="#diet" class="hchip">🥗 Diet Counselling</a>
+      <a href="#functional" class="hchip">🌿 Functional Medicine</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES STRIPS -->
+<div class="services-wrap">
+
+  <!-- ═══ 1. IV THERAPY ═══ -->
+  <section id="iv-therapy" class="svc-strip">
+    <div class="svc-strip-text sr-left">
+      <div class="svc-strip-num">01</div>
+      <div class="svc-eyebrow"><span class="svc-eyebrow-line"></span>Therapy 01</div>
+      <h2 class="svc-name">IV <em>Nutrition</em> Therapy</h2>
+      <p class="svc-desc">Vitamins, minerals, and antioxidants delivered directly into the bloodstream — bypassing digestion entirely. 100% bioavailability, every time. Something oral supplements simply cannot achieve.</p>
+      <div class="svc-benefits">
+        <div class="sb-row"><div class="sb-icon">✓</div>Rapid and complete nutrient absorption into the bloodstream</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Immediate energy boost and deep fatigue relief</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Powerful immune system support and cellular detox</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Fast rehydration and improved skin radiance</div>
+      </div>
+      <div class="svc-pills"><span class="spill">Energy</span><span class="spill">Immunity</span><span class="spill">Detox</span><span class="spill">Skin Health</span></div>
+      <a href="#booking" class="svc-cta">
+        Book This Therapy
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+    <div class="svc-strip-visual sr-right">
+      <div class="svc-vis-bg"></div>
+      <div class="vis-orb" style="width:300px;height:300px;background:#18b8d0;top:-80px;right:-60px;"></div>
+      <div class="vis-orb" style="width:200px;height:200px;background:#2563b8;bottom:-40px;left:-40px;"></div>
+      <div class="glass-widget">
+        <div class="gw-title">Absorption Rate</div>
+        <div class="gw-sub">IV vs. Oral Supplement Comparison</div>
+        <div class="iv-bars">
+          <div class="iv-col">
+            <div class="iv-track"><div class="iv-fill" style="height:100%;background:linear-gradient(180deg,#18b8d0,#7dd8f0);"></div></div>
+            <div class="iv-pct">100%</div>
+            <div class="iv-lbl">IV Drip</div>
+          </div>
+          <div class="iv-col">
+            <div class="iv-track"><div class="iv-fill" style="height:30%;background:rgba(255,255,255,0.22);"></div></div>
+            <div class="iv-pct">≤30%</div>
+            <div class="iv-lbl">Oral Pills</div>
+          </div>
+        </div>
+        <div class="iv-caption">Bioavailability Comparison</div>
+        <div class="gw-stats">
+          <div class="gws"><div class="gws-num">100%</div><div class="gws-lbl">Absorption</div></div>
+          <div class="gws"><div class="gws-num">Fast</div><div class="gws-lbl">Delivery</div></div>
+          <div class="gws"><div class="gws-num">1 hr</div><div class="gws-lbl">Session</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="strip-divider"></div>
+
+  <!-- ═══ 2. OZONE ═══ -->
+  <section id="ozone" class="svc-strip">
+    <div class="svc-strip-visual sr-left">
+      <div class="svc-vis-bg"></div>
+      <div class="vis-orb" style="width:250px;height:250px;background:#18b8d0;top:-50px;left:-50px;"></div>
+      <div class="vis-orb" style="width:180px;height:180px;background:#0a5070;bottom:-30px;right:-30px;"></div>
+      <div class="glass-widget">
+        <div class="gw-title">Medical-Grade O₃</div>
+        <div class="gw-sub">Multi-layered healing at the cellular level</div>
+        <div class="ozone-center-wrap">
+          <div class="o-ring"></div><div class="o-ring"></div><div class="o-ring"></div><div class="o-ring"></div>
+          <div class="o-center">O₃</div>
+        </div>
+        <div class="o-props">
+          <div class="o-prop">Gas</div><div class="o-prop">Dissolved in water</div><div class="o-prop">Oil-based</div>
+        </div>
+        <div class="gw-stats">
+          <div class="gws"><div class="gws-num">O₃</div><div class="gws-lbl">Medical Grade</div></div>
+          <div class="gws"><div class="gws-num">3-in-1</div><div class="gws-lbl">Methods</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-strip-text sr-right">
+      <div class="svc-strip-num">02</div>
+      <div class="svc-eyebrow"><span class="svc-eyebrow-line"></span>Therapy 02</div>
+      <h2 class="svc-name">Ozone <em>Therapy</em></h2>
+      <p class="svc-desc">Medical-grade ozone (O₃) stimulates the immune system, treats infections, improves oxygen uptake, and reduces inflammation. Remarkably versatile — administered as a gas, water, or oil for a wide range of conditions.</p>
+      <div class="svc-benefits">
+        <div class="sb-row"><div class="sb-icon">✓</div>Potent immune stimulation and infection control</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Improved oxygenation at the cellular level</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Reduces chronic inflammation and pain</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Accelerates wound and tissue healing</div>
+      </div>
+      <div class="svc-pills"><span class="spill">Immune Boost</span><span class="spill">Anti-Inflammatory</span><span class="spill">Oxygenation</span></div>
+      <a href="#booking" class="svc-cta">Book This Therapy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </section>
+  <div class="strip-divider"></div>
+
+  <!-- ═══ 3. HYDROGEN ═══ -->
+  <section id="hydrogen" class="svc-strip">
+    <div class="svc-strip-text sr-left">
+      <div class="svc-strip-num">03</div>
+      <div class="svc-eyebrow"><span class="svc-eyebrow-line"></span>Therapy 03</div>
+      <h2 class="svc-name">Hydrogen <em>Therapy</em></h2>
+      <p class="svc-desc">Molecular hydrogen (H₂) — the world's smallest and most selective antioxidant. Via inhalation, hydrogen-rich water, or saline. Acts powerfully across metabolic, neurological, and respiratory systems.</p>
+      <div class="app-grid" style="margin-bottom:24px;position:relative;z-index:1;">
+        <div class="app-item"><div class="app-icon">🫀</div><div class="app-ttl">Metabolic & Cardio</div><div class="app-txt">May reduce LDL cholesterol, BMI, and blood sugar levels.</div></div>
+        <div class="app-item"><div class="app-icon">🧠</div><div class="app-ttl">Neurological</div><div class="app-txt">Research shows potential for neurodegenerative conditions.</div></div>
+        <div class="app-item"><div class="app-icon">🎗️</div><div class="app-ttl">Cancer Support</div><div class="app-txt">Improved quality of life during chemotherapy.</div></div>
+        <div class="app-item"><div class="app-icon">🔥</div><div class="app-ttl">Anti-Inflammatory</div><div class="app-txt">Selective neutralisation of harmful hydroxyl radicals.</div></div>
+      </div>
+      <div class="svc-pills"><span class="spill">Non-toxic</span><span class="spill">Selective Antioxidant</span><span class="spill">Cell-Permeable</span></div>
+      <a href="#booking" class="svc-cta">Book This Therapy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <div class="svc-strip-visual sr-right">
+      <div class="svc-vis-bg"></div>
+      <div class="vis-orb" style="width:280px;height:280px;background:#18b8d0;top:-60px;right:-50px;opacity:0.18;"></div>
+      <div class="glass-widget">
+        <div class="gw-title">Molecular H₂</div>
+        <div class="gw-sub">The world's smallest selective antioxidant</div>
+        <div class="h2-wrap">
+          <div class="h-atom">H</div>
+          <div class="h-bond"></div>
+          <div class="h-atom">H</div>
+        </div>
+        <div class="h2-sub">Molecular Hydrogen H₂</div>
+        <div class="h2-tags">
+          <div class="h2-tag">Non-toxic</div>
+          <div class="h2-tag">Selective antioxidant</div>
+          <div class="h2-tag">Cell-permeable</div>
+        </div>
+        <div class="gw-stats">
+          <div class="gws"><div class="gws-num">H₂</div><div class="gws-lbl">Molecular</div></div>
+          <div class="gws"><div class="gws-num">3</div><div class="gws-lbl">Methods</div></div>
+          <div class="gws"><div class="gws-num">Safe</div><div class="gws-lbl">Non-toxic</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="strip-divider"></div>
+
+  <!-- ═══ 4. PRP ═══ -->
+  <section id="prp" class="svc-strip">
+    <div class="svc-strip-visual sr-left">
+      <div class="svc-vis-bg"></div>
+      <div class="vis-orb" style="width:260px;height:260px;background:#c0103a;top:-50px;left:-40px;opacity:0.20;"></div>
+      <div class="glass-widget">
+        <div class="gw-title">Platelet Rich Plasma</div>
+        <div class="gw-sub">Your own biology, supercharged for regeneration</div>
+        <div class="prp-steps">
+          <div class="prp-row">
+            <div class="prp-icon-wrap">🩸</div>
+            <div><div class="prp-body-ttl">Step 1 — Draw Blood</div><div class="prp-body-txt">Small sample from the patient</div></div>
+          </div>
+          <div class="prp-connector"></div>
+          <div class="prp-row">
+            <div class="prp-icon-wrap">⚙️</div>
+            <div><div class="prp-body-ttl">Step 2 — Centrifuge</div><div class="prp-body-txt">Concentrate platelets & growth factors</div></div>
+          </div>
+          <div class="prp-connector"></div>
+          <div class="prp-row">
+            <div class="prp-icon-wrap">💉</div>
+            <div><div class="prp-body-ttl">Step 3 — Inject</div><div class="prp-body-txt">Precisely targeted to the healing site</div></div>
+          </div>
+        </div>
+        <div class="gw-stats">
+          <div class="gws"><div class="gws-num">4+</div><div class="gws-lbl">Applications</div></div>
+          <div class="gws"><div class="gws-num">Own</div><div class="gws-lbl">Blood Used</div></div>
+          <div class="gws"><div class="gws-num">Min.</div><div class="gws-lbl">Invasive</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-strip-text sr-right">
+      <div class="svc-strip-num">04</div>
+      <div class="svc-eyebrow"><span class="svc-eyebrow-line"></span>Therapy 04</div>
+      <h2 class="svc-name">Platelet Rich <em>Plasma (PRP)</em></h2>
+      <p class="svc-desc">A minimally invasive procedure using the patient's own blood to promote healing and tissue regeneration. Blood is drawn, centrifuged to concentrate platelets, then injected precisely where healing is needed.</p>
+      <div class="app-grid" style="margin-bottom:24px;position:relative;z-index:1;">
+        <div class="app-item"><div class="app-icon">🦴</div><div class="app-ttl">Orthopaedic</div><div class="app-txt">Ligament sprains, tendonitis, and osteoarthritis.</div></div>
+        <div class="app-item"><div class="app-icon">💇</div><div class="app-ttl">Hair Restoration</div><div class="app-txt">Treats Androgenic Alopecia.</div></div>
+        <div class="app-item"><div class="app-icon">✨</div><div class="app-ttl">Skin Rejuvenation</div><div class="app-txt">The "vampire facial" for texture and scarring.</div></div>
+        <div class="app-item"><div class="app-icon">🩹</div><div class="app-ttl">Wound Healing</div><div class="app-txt">Chronic wound management and repair.</div></div>
+      </div>
+      <a href="#booking" class="svc-cta">Book This Therapy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </section>
+  <div class="strip-divider"></div>
+
+  <!-- ═══ 5. COLON ═══ -->
+  <section id="colon" class="svc-strip">
+    <div class="svc-strip-text sr-left">
+      <div class="svc-strip-num">05</div>
+      <div class="svc-eyebrow"><span class="svc-eyebrow-line"></span>Therapy 05</div>
+      <h2 class="svc-name">Colon <em>Hydrotherapy</em></h2>
+      <p class="svc-desc">Filtered water gently flushes the large intestine, removing accumulated waste and toxins to improve digestive health, restore healthy gut flora, and support natural detoxification.</p>
+      <div class="svc-benefits">
+        <div class="sb-row"><div class="sb-icon">✓</div>Relieves chronic constipation and bowel irregularity</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Reduces gas, bloating, and abdominal discomfort</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Improves digestion and nutrient absorption</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Aids whole-body detoxification and toxin removal</div>
+      </div>
+      <div class="svc-pills"><span class="spill">Detox</span><span class="spill">Digestion</span><span class="spill">Gut Health</span><span class="spill">Weight Support</span></div>
+      <a href="#booking" class="svc-cta">Book This Therapy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <div class="svc-strip-visual sr-right">
+      <div class="svc-vis-bg"></div>
+      <div class="vis-orb" style="width:250px;height:250px;background:#18b890;top:-50px;right:-40px;opacity:0.20;"></div>
+      <div class="glass-widget">
+        <div class="gw-title">Colon Hydrotherapy</div>
+        <div class="gw-sub">Gentle water-based digestive cleanse</div>
+        <div class="wave-box">
+          <div class="wv"></div><div class="wv"></div><div class="wv"></div>
+        </div>
+        <div class="gw-stats">
+          <div class="gws"><div class="gws-num">Safe</div><div class="gws-lbl">Water-Based</div></div>
+          <div class="gws"><div class="gws-num">30–45</div><div class="gws-lbl">Min Session</div></div>
+          <div class="gws"><div class="gws-num">100%</div><div class="gws-lbl">Natural</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="strip-divider"></div>
+
+  <!-- ═══ 6. SAUNA ═══ -->
+  <section id="sauna" class="svc-strip">
+    <div class="svc-strip-visual sr-left">
+      <div class="svc-vis-bg"></div>
+      <div class="vis-orb" style="width:280px;height:280px;background:#e05010;top:-60px;left:-50px;opacity:0.15;"></div>
+      <div class="glass-widget">
+        <div class="gw-title">Sauna Bath</div>
+        <div class="gw-sub">Therapeutic heat — ancient wisdom meets science</div>
+        <div class="thermo-row">
+          <div class="thermo-col">
+            <div class="thermo-body"><div class="thermo-fill-bar"></div></div>
+            <div class="thermo-bulb-circle"></div>
+            <div class="thermo-temp">80°C</div>
+          </div>
+          <div class="heat-bars-col">
+            <div class="hbr"><div class="hbr-lbl">Circulation</div><div class="hbr-track"><div class="hbr-fill" style="width:92%"></div></div></div>
+            <div class="hbr"><div class="hbr-lbl">Relaxation</div><div class="hbr-track"><div class="hbr-fill" style="width:96%"></div></div></div>
+            <div class="hbr"><div class="hbr-lbl">Detox</div><div class="hbr-track"><div class="hbr-fill" style="width:85%"></div></div></div>
+            <div class="hbr"><div class="hbr-lbl">Skin Health</div><div class="hbr-track"><div class="hbr-fill" style="width:78%"></div></div></div>
+            <div class="hbr"><div class="hbr-lbl">Cardio</div><div class="hbr-track"><div class="hbr-fill" style="width:88%"></div></div></div>
+          </div>
+        </div>
+        <div class="gw-stats">
+          <div class="gws"><div class="gws-num">80°C</div><div class="gws-lbl">Temperature</div></div>
+          <div class="gws"><div class="gws-num">15–30</div><div class="gws-lbl">Min Session</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-strip-text sr-right">
+      <div class="svc-strip-num">06</div>
+      <div class="svc-eyebrow"><span class="svc-eyebrow-line"></span>Therapy 06</div>
+      <h2 class="svc-name">Sauna <em>Bath</em></h2>
+      <p class="svc-desc">A high-temperature room triggering a cascade of beneficial physiological changes — cardiovascular strengthening to deep muscular relaxation. One of the oldest evidence-backed wellness practices in the world.</p>
+      <div class="svc-benefits">
+        <div class="sb-row"><div class="sb-icon">✓</div>Improves vascular function and circulation</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Lowers blood pressure through heat-induced vasodilation</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Eases joint inflammation and muscle tension</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Promotes deep relaxation and stress relief</div>
+      </div>
+      <div class="svc-pills"><span class="spill">Cardiovascular</span><span class="spill">Relaxation</span><span class="spill">Joint Health</span><span class="spill">Skin</span></div>
+      <a href="#booking" class="svc-cta">Book This Therapy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </section>
+  <div class="strip-divider"></div>
+
+  <!-- ═══ 7. ACUPUNCTURE ═══ -->
+  <section id="acupuncture" class="svc-strip">
+    <div class="svc-strip-text sr-left">
+      <div class="svc-strip-num">07</div>
+      <div class="svc-eyebrow"><span class="svc-eyebrow-line"></span>Therapy 07</div>
+      <h2 class="svc-name">Acupuncture <em>Therapy</em></h2>
+      <p class="svc-desc">Thin sterile needles inserted at specific body points to balance energy flow (Qi). 3,000 years of history, growing scientific validation. Widely used for pain management and a broad spectrum of conditions.</p>
+      <div class="cond-grid">
+        <div class="cond-item"><div class="cond-tick">✓</div>Back pain</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>Neck pain</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>Osteoarthritis</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>Headaches & Migraine</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>Infertility</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>Digestive issues</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>Menopause symptoms</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>PCOS</div>
+      </div>
+      <div class="svc-pills"><span class="spill">Pain Relief</span><span class="spill">Traditional Medicine</span><span class="spill">Women's Health</span></div>
+      <a href="#booking" class="svc-cta">Book This Therapy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <div class="svc-strip-visual sr-right">
+      <div class="svc-vis-bg"></div>
+      <div class="vis-orb" style="width:260px;height:260px;background:#8020e0;top:-50px;right:-40px;opacity:0.18;"></div>
+      <div class="glass-widget">
+        <div class="gw-title">Meridian Points</div>
+        <div class="gw-sub">3,000 years of healing — 361 body points</div>
+        <div class="meri-grid" id="meridianGrid"></div>
+        <div class="meri-legend">
+          <div class="ml"><div class="ml-dot" style="background:#b87df0"></div>Meridian point</div>
+          <div class="ml"><div class="ml-dot" style="background:white"></div>Active treatment</div>
+        </div>
+        <div class="gw-stats">
+          <div class="gws"><div class="gws-num">3000</div><div class="gws-lbl">Years History</div></div>
+          <div class="gws"><div class="gws-num">8+</div><div class="gws-lbl">Conditions</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="strip-divider"></div>
+
+  <!-- ═══ 8. YOGA ═══ -->
+  <section id="yoga" class="svc-strip">
+    <div class="svc-strip-visual sr-left">
+      <div class="svc-vis-bg"></div>
+      <div class="vis-orb" style="width:260px;height:260px;background:#9020e0;top:-50px;left:-40px;opacity:0.18;"></div>
+      <div class="glass-widget">
+        <div class="gw-title">Chakra Alignment</div>
+        <div class="gw-sub">Balance your 7 energy centres</div>
+        <div class="chakra-list">
+          <div class="ck-row"><div class="ck-circle" style="background:#9b59b6">👑</div><div class="ck-name">Crown</div><div class="ck-track"><div class="ck-fill" style="width:88%;background:#9b59b6"></div></div></div>
+          <div class="ck-row"><div class="ck-circle" style="background:#5c6bc0">🔵</div><div class="ck-name">Third Eye</div><div class="ck-track"><div class="ck-fill" style="width:82%;background:#5c6bc0"></div></div></div>
+          <div class="ck-row"><div class="ck-circle" style="background:#1e88e5">💙</div><div class="ck-name">Throat</div><div class="ck-track"><div class="ck-fill" style="width:90%;background:#1e88e5"></div></div></div>
+          <div class="ck-row"><div class="ck-circle" style="background:#43a047">💚</div><div class="ck-name">Heart</div><div class="ck-track"><div class="ck-fill" style="width:95%;background:#43a047"></div></div></div>
+          <div class="ck-row"><div class="ck-circle" style="background:#fdd835">💛</div><div class="ck-name">Solar</div><div class="ck-track"><div class="ck-fill" style="width:78%;background:#fdd835"></div></div></div>
+          <div class="ck-row"><div class="ck-circle" style="background:#fb8c00">🟠</div><div class="ck-name">Sacral</div><div class="ck-track"><div class="ck-fill" style="width:72%;background:#fb8c00"></div></div></div>
+          <div class="ck-row"><div class="ck-circle" style="background:#e53935">🔴</div><div class="ck-name">Root</div><div class="ck-track"><div class="ck-fill" style="width:85%;background:#e53935"></div></div></div>
+        </div>
+        <div class="gw-stats">
+          <div class="gws"><div class="gws-num">3-in-1</div><div class="gws-lbl">Body · Mind · Breath</div></div>
+          <div class="gws"><div class="gws-num">7+</div><div class="gws-lbl">Benefits</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-strip-text sr-right">
+      <div class="svc-strip-num">08</div>
+      <div class="svc-eyebrow"><span class="svc-eyebrow-line"></span>Therapy 08</div>
+      <h2 class="svc-name">Yoga <em>Therapy</em></h2>
+      <p class="svc-desc">Yoga postures, breathing techniques, and meditation — tailored to your individual needs, physical capacity, and health goals. A powerful therapeutic tool backed by science.</p>
+      <div class="svc-benefits">
+        <div class="sb-row"><div class="sb-icon">✓</div>Anxiety and stress reduction</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Depression relief and mood regulation</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Enhanced respiratory health and lung capacity</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Improved heart health and blood pressure</div>
+        <div class="sb-row"><div class="sb-icon">✓</div>Weight management and better sleep quality</div>
+      </div>
+      <div class="svc-pills"><span class="spill">Mental Health</span><span class="spill">Stress Relief</span><span class="spill">Heart Health</span><span class="spill">Personalised</span></div>
+      <a href="#booking" class="svc-cta">Book This Therapy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </section>
+  <div class="strip-divider"></div>
+
+  <!-- ═══ 9. DIET ═══ -->
+  <section id="diet" class="svc-strip">
+    <div class="svc-strip-text sr-left">
+      <div class="svc-strip-num">09</div>
+      <div class="svc-eyebrow"><span class="svc-eyebrow-line"></span>Therapy 09</div>
+      <h2 class="svc-name">Diet <em>Counselling</em></h2>
+      <p class="svc-desc">Personalised dietary guidance for better health, disease management, and weight control. We assess your nutritional needs, set goals, and create tailored meal plans — including care for pregnancy and eating disorders.</p>
+      <div class="steps-list">
+        <div class="step-item"><div class="step-n">1</div><div><div class="step-ttl">Comprehensive Assessment</div><div class="step-txt">In-depth review of your health history, current diet, lifestyle, and medical conditions.</div></div></div>
+        <div class="step-item"><div class="step-n">2</div><div><div class="step-ttl">Goal Setting</div><div class="step-txt">Establishing realistic, personalised health and nutrition goals.</div></div></div>
+        <div class="step-item"><div class="step-n">3</div><div><div class="step-ttl">Education & Skill Building</div><div class="step-txt">Understanding how food affects your body for sustainable change.</div></div></div>
+        <div class="step-item"><div class="step-n">4</div><div><div class="step-ttl">Personalised Action Plan</div><div class="step-txt">A tailored meal plan and practical strategies for your needs.</div></div></div>
+        <div class="step-item"><div class="step-n">5</div><div><div class="step-ttl">Ongoing Support</div><div class="step-txt">Regular follow-ups to monitor progress and keep you motivated.</div></div></div>
+      </div>
+      <a href="#booking" class="svc-cta">Book This Therapy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <div class="svc-strip-visual sr-right">
+      <div class="svc-vis-bg"></div>
+      <div class="vis-orb" style="width:260px;height:260px;background:#20a040;top:-50px;right:-40px;opacity:0.15;"></div>
+      <div class="glass-widget">
+        <div class="gw-title">Eat to Nourish</div>
+        <div class="gw-sub">A balanced plate personalised just for you</div>
+        <div class="diet-row">
+          <div class="diet-pie"><div class="diet-pie-inner">🥗</div></div>
+          <div class="diet-legend">
+            <div class="dl-row"><div class="dl-dot" style="background:#4ecb71"></div><div class="dl-lbl">Vegetables</div><div class="dl-pct">30%</div></div>
+            <div class="dl-row"><div class="dl-dot" style="background:#f0c840"></div><div class="dl-lbl">Whole Grains</div><div class="dl-pct">25%</div></div>
+            <div class="dl-row"><div class="dl-dot" style="background:#f07040"></div><div class="dl-lbl">Lean Protein</div><div class="dl-pct">20%</div></div>
+            <div class="dl-row"><div class="dl-dot" style="background:#40a8f0"></div><div class="dl-lbl">Healthy Fats</div><div class="dl-pct">15%</div></div>
+            <div class="dl-row"><div class="dl-dot" style="background:rgba(255,255,255,.2)"></div><div class="dl-lbl">Personalised</div><div class="dl-pct">10%</div></div>
+          </div>
+        </div>
+        <div class="gw-stats">
+          <div class="gws"><div class="gws-num">5</div><div class="gws-lbl">Step Process</div></div>
+          <div class="gws"><div class="gws-num">100%</div><div class="gws-lbl">Personalised</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="strip-divider"></div>
+
+  <!-- ═══ 10. FUNCTIONAL MEDICINE ═══ -->
+  <section id="functional" class="svc-strip">
+    <div class="svc-strip-visual sr-left">
+      <div class="svc-vis-bg"></div>
+      <div class="vis-orb" style="width:260px;height:260px;background:#18b890;top:-50px;left:-40px;opacity:0.18;"></div>
+      <div class="glass-widget">
+        <div class="gw-title">Root Cause Approach</div>
+        <div class="gw-sub">We don't treat symptoms — we find and fix the root</div>
+        <div class="pyramid">
+          <div class="pyr-row"><div class="pyr-block pyr-1">Symptoms & Surface Signs</div></div>
+          <div class="pyr-row"><div class="pyr-block pyr-2">Lifestyle & Environment</div></div>
+          <div class="pyr-row"><div class="pyr-block pyr-3">Nutrition & Gut Health</div></div>
+          <div class="pyr-row"><div class="pyr-block pyr-4">Hormones & Genetics</div></div>
+          <div class="pyr-row"><div class="pyr-block pyr-5">Root Cause</div></div>
+          <div class="pyr-cap">Our Diagnostic Approach</div>
+        </div>
+        <div class="gw-stats">
+          <div class="gws"><div class="gws-num">Root</div><div class="gws-lbl">Cause Focus</div></div>
+          <div class="gws"><div class="gws-num">Whole</div><div class="gws-lbl">Person</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-strip-text sr-right">
+      <div class="svc-strip-num">10</div>
+      <div class="svc-eyebrow"><span class="svc-eyebrow-line"></span>Therapy 10</div>
+      <h2 class="svc-name">Functional <em>Medicine</em></h2>
+      <p class="svc-desc">A patient-centred, root cause-oriented medical approach — identifying and correcting underlying causes rather than suppressing symptoms. Modern medical science integrated with lifestyle, nutrition, and systems biology.</p>
+      <div class="cond-grid">
+        <div class="cond-item"><div class="cond-tick">✓</div>Depression & Anxiety</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>Weight Gain</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>Arthritis</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>Heartburn & GERD</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>IBS & Gut Issues</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>Allergies</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>PCOS & Hormonal Imbalance</div>
+        <div class="cond-item"><div class="cond-tick">✓</div>Insomnia & Skin Issues</div>
+      </div>
+      <div class="svc-pills"><span class="spill">Root Cause</span><span class="spill">Hormonal Balance</span><span class="spill">Gut Health</span></div>
+      <a href="#booking" class="svc-cta">Book This Therapy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </section>
+
+</div><!-- /services-wrap -->
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-head sr">
+    <div class="faq-eyebrow"><span></span>Got Questions?<span></span></div>
+    <h2 class="faq-title">Frequently <em>Asked</em></h2>
+  </div>
+  <div class="faqs-grid">
+    <div class="faq-item sr"><div class="faq-q">How do I know which therapy is right for me?</div><div class="faq-a">Our practitioners will conduct a comprehensive health assessment during your first consultation and recommend a personalised care pathway based on your goals and medical history.</div></div>
+    <div class="faq-item sr d1"><div class="faq-q">Are the therapies safe?</div><div class="faq-a">All our therapies are administered by trained professionals using medical-grade equipment and sterile protocols. We follow safety guidelines and conduct pre-screening for every patient.</div></div>
+    <div class="faq-item sr d2"><div class="faq-q">How many sessions will I need?</div><div class="faq-a">This varies by therapy and individual. Some patients experience benefits after one session, while others benefit from a structured course. We will create a personalised plan for you.</div></div>
+    <div class="faq-item sr d3"><div class="faq-q">Can therapies be combined?</div><div class="faq-a">Yes. Many patients follow integrative protocols combining multiple therapies for enhanced results — for example, IV nutrition alongside functional medicine consultations.</div></div>
+    <div class="faq-item sr"><div class="faq-q">What should I do to prepare for a session?</div><div class="faq-a">Stay hydrated, eat a light meal beforehand, and wear comfortable clothing. Specific instructions will be given when you book.</div></div>
+    <div class="faq-item sr d1"><div class="faq-q">Do you offer membership packages?</div><div class="faq-a">Yes — we offer membership plans with discounted access to multiple therapies, priority booking, and ongoing wellness support. Ask us about current packages.</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="booking">
+  <div class="cta-inner">
+    <div class="cta-eyebrow"><span></span>Start Today<span></span></div>
+    <h2 class="cta-title">Ready to Begin Your <em>Wellness Journey?</em></h2>
+    <p class="cta-desc">Book a consultation and let us design a personalised therapy plan that restores your vitality from the root up — not just the surface.</p>
+    <div class="cta-btns">
+      <a href="tel:5551234567" class="btn-primary">📞 Call Us Now</a>
+      <a href="about.html" class="btn-outline">Learn About Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand"><span class="blu">Blu</span>-I-Vitality</div>
+      <div class="foot-brand-sub">Lounge</div>
+      <p class="foot-desc">Your sanctuary for hydration, relaxation, and holistic wellness therapies designed to refresh your body, mind, and spirit.</p>
+      <div class="foot-socials">
+        <a href="#" class="fsoc">f</a><a href="#" class="fsoc">in</a><a href="#" class="fsoc">ig</a><a href="#" class="fsoc">yt</a>
+      </div>
+    </div>
+    <div>
+      <div class="foot-col-ttl">Services</div>
+      <ul class="foot-links">
+        <li><a href="#iv-therapy">IV Nutrition Therapy</a></li>
+        <li><a href="#ozone">Ozone Therapy</a></li>
+        <li><a href="#hydrogen">Hydrogen Therapy</a></li>
+        <li><a href="#prp">PRP Therapy</a></li>
+        <li><a href="#colon">Colon Hydrotherapy</a></li>
+        <li><a href="#sauna">Sauna Bath</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-ttl">More Services</div>
+      <ul class="foot-links">
+        <li><a href="#acupuncture">Acupuncture</a></li>
+        <li><a href="#yoga">Yoga Therapy</a></li>
+        <li><a href="#diet">Diet Counselling</a></li>
+        <li><a href="#functional">Functional Medicine</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#">Membership</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-ttl">Contact</div>
+      <ul class="foot-links">
+        <li><a href="#">📍 176 /2, 4th Floor, Renaissance Terrace, near, Thirugnanasambandam Rd, opp. Bishop Appasamy College of Arts & Science, Race Course, Gopalapuram, Coimbatore, Tamil Nadu 641018</a></li>
+        <li><a href="#">📞 (555) 123-4567</a></li>
+        <li><a href="#">✉️ hello@bluvitality.com</a></li>
+        <li><a href="#">Mon–Sat: 8am – 8pm</a></li>
+        <li><a href="#">Sunday: 10am – 5pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <div class="foot-copy">© 2026 Blu-I-Vitality Lounge. All rights reserved.</div>
+    <div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies</a></div>
+  </div>
+</footer>
+
+<script>
+  /* Nav shadow */
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 20 ? '0 4px 28px rgba(26,58,140,0.1)' : '0 2px 20px rgba(26,58,140,0.06)';
+  });
+
+  /* Scroll reveal */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.06});
+  document.querySelectorAll('.sr,.sr-left,.sr-right').forEach(el => io.observe(el));
+
+  /* Meridian dots */
+  const grid = document.getElementById('meridianGrid');
+  if(grid){
+    const active=[3,7,10,14,18,21,25,29,33,36,40,44,48,51,55,59];
+    const pulse=[5,12,22,31,38,47,53];
+    for(let i=0;i<64;i++){
+      const d=document.createElement('div');
+      d.className='m-dot'+(pulse.includes(i)?' pulse':active.includes(i)?' active':'');
+      grid.appendChild(d);
+    }
+  }
+</script>
+</body>
+</html>

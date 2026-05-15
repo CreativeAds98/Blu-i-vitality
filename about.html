@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Blu-I-Vitality Lounge</title>
+<favicon href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a3a8c;
+    --navy-dark: #102060;
+    --blue: #2563b8;
+    --teal: #18b8d0;
+    --teal-light: #e0f7fb;
+    --sky-pale: #f5faff;
+    --white: #ffffff;
+    --text-dark: #1a2a4a;
+    --text-mid: #4a6080;
+    --text-light: #7a9ab8;
+    --border: rgba(200,220,240,0.35);
+  }
+
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; font-weight: 300; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: sticky; top: 0; z-index: 999;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(200,220,240,0.25);
+    box-shadow: 0 2px 20px rgba(26,58,140,0.06);
+    height: 74px; display: flex; align-items: center;
+    padding: 0 44px; gap: 0;
+  }
+  .nav-logo {
+    display:flex; align-items:center; text-decoration:none;
+    flex-shrink:0; margin-right:44px; transform:translateY(-6px);
+    transition:opacity .2s;
+  }
+  .nav-logo:hover { opacity:.85; }
+  .logo-icon-wrap { display:flex; align-items:center; justify-content:center; }
+  .logo-hbird { height:76px; width:auto; object-fit:contain; display:block; }
+  .logo-sub { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--text-light); margin-top: 2px; font-family: 'Nunito', sans-serif; }
+  .nav-links { display: flex; list-style: none; gap: 4px; flex: 1; justify-content: center; align-items: center; }
+  .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--text-mid); text-decoration: none; padding: 6px 11px; border-radius: 6px; transition: color 0.2s; white-space: nowrap; position: relative; }
+  .nav-links a.active { color: var(--navy); font-weight: 700; }
+  .nav-links a.active::after { content: ''; position: absolute; bottom: -3px; left: 11px; right: 11px; height: 2.5px; background: var(--blue); border-radius: 2px; }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-book {
+    display: flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg,#2563b8,#1a3a8c);
+    color: white!important; font-size: 14.5px; font-weight: 700; font-family: 'Nunito', sans-serif;
+    padding: 10px 24px; border-radius: 50px; text-decoration: none;
+    box-shadow: 0 6px 22px rgba(37,99,184,0.38);
+    transition: all 0.25s ease; white-space: nowrap; flex-shrink: 0; margin-left: 8px;
+  }
+  .nav-book:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,99,184,0.48); }
+  .nav-book svg { width: 15px; height: 15px; }
+
+  /* ── HERO ── */
+  .about-hero {
+    position: relative; min-height: 500px;
+    background: linear-gradient(135deg, #0d2460 0%, #1a3a8c 40%, #1a6bc2 75%, #18b8d0 100%);
+    display: flex; align-items: center; overflow: hidden;
+    padding: 80px 80px 80px;
+  }
+  .hero-orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); opacity: 0.18; pointer-events: none;
+  }
+  .hero-orb-1 { width: 600px; height: 600px; background: #18b8d0; top: -200px; right: -100px; }
+  .hero-orb-2 { width: 400px; height: 400px; background: #6ac8f8; bottom: -150px; left: 200px; }
+  .hero-content { position: relative; z-index: 2; max-width: 680px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+    color: #a8dff5; font-size: 12px; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; padding: 6px 16px; border-radius: 50px;
+    margin-bottom: 28px; backdrop-filter: blur(8px);
+  }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; background: #18b8d0; border-radius: 50%; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: 58px; font-weight: 700; color: white; line-height: 1.12; margin-bottom: 24px; }
+  .hero-title em { font-style: italic; color: #7dd8f0; }
+  .hero-desc { font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.78); line-height: 1.8; max-width: 520px; }
+  .hero-visual {
+    position: absolute; right: 80px; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 16px; z-index: 2;
+  }
+  .hero-stat {
+    background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px); border-radius: 16px;
+    padding: 20px 28px; text-align: center; min-width: 140px;
+  }
+  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: white; }
+  .hero-stat-lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-top: 4px; }
+
+  /* Breadcrumb */
+  .breadcrumb-bar { background: var(--sky-pale); border-bottom: 1px solid var(--border); padding: 14px 80px; display: flex; align-items: center; gap: 8px; }
+  .bc-link { font-size: 13px; color: var(--text-light); text-decoration: none; }
+  .bc-link:hover { color: var(--blue); }
+  .bc-sep { font-size: 13px; color: var(--text-light); }
+  .bc-current { font-size: 13px; font-weight: 600; color: var(--navy); }
+
+  /* ── SECTIONS ── */
+  section { padding: 96px 80px; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 16px;
+  }
+  .section-label::before { content: ''; width: 28px; height: 2px; background: var(--teal); border-radius: 2px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; color: var(--navy); line-height: 1.2; }
+  .section-title em { font-style: italic; color: var(--blue); }
+
+  /* ── MISSION / VISION ── */
+  .mission-section { background: var(--white); }
+  .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .mission-visual { position: relative; }
+  .mission-card-stack { position: relative; height: 420px; }
+  .mcard {
+    position: absolute; border-radius: 24px; padding: 36px;
+    box-shadow: 0 20px 60px rgba(26,58,140,0.12);
+  }
+  .mcard-main {
+    background: linear-gradient(145deg, #1a3a8c, #2563b8);
+    color: white; width: 340px; top: 0; left: 0;
+  }
+  .mcard-accent {
+    background: white; border: 1px solid var(--border);
+    width: 280px; bottom: 0; right: -20px;
+  }
+  .mcard-icon { font-size: 32px; margin-bottom: 16px; }
+  .mcard-ttl { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+  .mcard-main .mcard-ttl { color: white; }
+  .mcard-accent .mcard-ttl { color: var(--navy); }
+  .mcard-txt { font-size: 14px; line-height: 1.75; }
+  .mcard-main .mcard-txt { color: rgba(255,255,255,0.82); }
+  .mcard-accent .mcard-txt { color: var(--text-mid); }
+  .mcard-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.15); border-radius: 50px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #7dd8f0; padding: 5px 14px; margin-bottom: 16px;
+  }
+  .mcard-accent .mcard-pill { background: var(--teal-light); color: var(--teal); }
+
+  .mission-content { }
+  .mission-content p { font-size: 16.5px; color: var(--text-mid); line-height: 1.85; margin-bottom: 20px; }
+  .mission-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+  .pillar {
+    background: var(--sky-pale); border: 1px solid var(--border);
+    border-radius: 16px; padding: 20px 22px;
+    border-left: 4px solid var(--blue);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .pillar:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(26,58,140,0.10); }
+  .pillar-icon { font-size: 22px; margin-bottom: 8px; }
+  .pillar-ttl { font-size: 13px; font-weight: 700; color: var(--navy); letter-spacing: 0.06em; margin-bottom: 4px; }
+  .pillar-txt { font-size: 12.5px; color: var(--text-light); line-height: 1.6; }
+
+  /* ── SERVICES GRID ── */
+  .services-section { background: var(--sky-pale); }
+  .services-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; }
+  .services-intro { max-width: 480px; margin-top: 12px; font-size: 16px; color: var(--text-mid); line-height: 1.75; }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .svc-card {
+    background: white; border-radius: 20px; padding: 28px 24px 24px;
+    border: 1px solid var(--border);
+    transition: transform 0.28s, box-shadow 0.28s, border-color 0.28s;
+    cursor: default;
+  }
+  .svc-card:hover { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(26,58,140,0.12); border-color: rgba(37,99,184,0.25); }
+  .svc-card:hover .svc-icon-wrap { background: linear-gradient(135deg,#2563b8,#1a3a8c); }
+  .svc-card:hover .svc-icon-wrap span { filter: brightness(10); }
+  .svc-icon-wrap {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: var(--teal-light);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px; transition: background 0.28s;
+  }
+  .svc-icon-wrap span { font-size: 26px; transition: filter 0.28s; }
+  .svc-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .svc-desc { font-size: 13px; color: var(--text-light); line-height: 1.7; }
+  .svc-tag {
+    display: inline-block; margin-top: 14px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--blue);
+    background: rgba(37,99,184,0.08); border-radius: 50px; padding: 3px 12px;
+  }
+
+  /* ── WHY US ── */
+  .why-section { background: white; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .why-content { }
+  .why-content p { font-size: 16px; color: var(--text-mid); line-height: 1.85; margin-bottom: 32px; }
+  .why-list { display: flex; flex-direction: column; gap: 20px; }
+  .why-item { display: flex; gap: 18px; align-items: flex-start; }
+  .why-num {
+    flex-shrink: 0; width: 42px; height: 42px; border-radius: 12px;
+    background: linear-gradient(135deg,#2563b8,#1a3a8c);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: white;
+  }
+  .why-body {}
+  .why-ttl { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .why-txt { font-size: 13.5px; color: var(--text-light); line-height: 1.65; }
+
+  .why-visual { position: relative; }
+  .fm-diagram {
+    background: linear-gradient(145deg, #f5faff, #e8f4fe);
+    border: 1px solid var(--border);
+    border-radius: 28px; padding: 44px 36px;
+    text-align: center; position: relative;
+  }
+  .fm-center {
+    width: 110px; height: 110px; border-radius: 50%;
+    background: linear-gradient(135deg, #1a3a8c, #2563b8);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    margin: 0 auto 36px;
+    box-shadow: 0 16px 48px rgba(26,58,140,0.28);
+  }
+  .fm-center-icon { font-size: 28px; margin-bottom: 4px; }
+  .fm-center-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.82); }
+  .fm-petals { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .fm-petal {
+    background: white; border: 1px solid var(--border); border-radius: 14px;
+    padding: 14px 16px; text-align: left;
+    transition: box-shadow 0.25s;
+  }
+  .fm-petal:hover { box-shadow: 0 8px 24px rgba(26,58,140,0.10); }
+  .fm-petal-icon { font-size: 18px; margin-bottom: 6px; }
+  .fm-petal-ttl { font-size: 12px; font-weight: 700; color: var(--navy); }
+  .fm-petal-txt { font-size: 11.5px; color: var(--text-light); line-height: 1.5; margin-top: 3px; }
+  .fm-quote {
+    margin-top: 24px; padding: 16px 20px;
+    background: linear-gradient(135deg, rgba(26,58,140,0.05), rgba(24,184,208,0.08));
+    border-radius: 14px; border-left: 3px solid var(--teal);
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 14px; color: var(--navy); line-height: 1.65;
+  }
+
+  /* ── TEAM ── */
+  .team-section { background: var(--sky-pale); }
+  .team-head { text-align: center; margin-bottom: 52px; }
+  .team-head .section-label { display: flex; justify-content: center; }
+  .team-sub { max-width: 480px; margin: 16px auto 0; font-size: 16px; color: var(--text-mid); line-height: 1.75; text-align: center; }
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .team-card {
+    background: white; border-radius: 24px; padding: 36px 28px;
+    border: 1px solid var(--border); text-align: center;
+    transition: transform 0.28s, box-shadow 0.28s;
+  }
+  .team-card:hover { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(26,58,140,0.12); }
+  .team-avatar {
+    width: 90px; height: 90px; border-radius: 50%;
+    background: linear-gradient(135deg, #2563b8, #18b8d0);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px; margin: 0 auto 20px;
+    border: 4px solid white;
+    box-shadow: 0 8px 24px rgba(26,58,140,0.18);
+  }
+  .team-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .team-role { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+  .team-bio { font-size: 13.5px; color: var(--text-light); line-height: 1.7; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: linear-gradient(135deg, #0d2460 0%, #1a3a8c 40%, #1a6bc2 80%, #18b8d0 100%);
+    padding: 96px 80px; text-align: center; position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 50%, rgba(24,184,208,0.25) 0%, transparent 70%);
+  }
+  .cta-inner { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
+  .cta-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+    color: #a8dff5; font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; padding: 5px 16px; border-radius: 50px; margin-bottom: 28px;
+  }
+  .cta-title { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; color: white; line-height: 1.15; margin-bottom: 20px; }
+  .cta-title em { font-style: italic; color: #7dd8f0; }
+  .cta-desc { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 40px; }
+  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: white; color: var(--navy);
+    font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700;
+    padding: 14px 32px; border-radius: 50px; text-decoration: none;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+    transition: all 0.25s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(0,0,0,0.28); }
+  .btn-outline {
+    background: transparent; color: white; border: 2px solid rgba(255,255,255,0.45);
+    font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700;
+    padding: 14px 32px; border-radius: 50px; text-decoration: none;
+    transition: all 0.25s;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: white; }
+
+  /* ── FOOTER ── */
+  footer { background: #0b1a40; color: rgba(255,255,255,0.65); padding: 64px 80px 36px; }
+  .foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 52px; margin-bottom: 52px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .foot-brand { font-family: 'Great Vibes', cursive; font-size: 26px; color: white; margin-bottom: 3px; }
+  .foot-brand .blu { color: #7dd8f0; }
+  .foot-brand-sub { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.33); margin-bottom: 18px; }
+  .foot-desc { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.38); max-width: 240px; margin-bottom: 24px; }
+  .foot-socials { display: flex; gap: 9px; }
+  .fsoc { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.35); text-decoration: none; font-size: 11px; font-weight: 700; transition: all 0.25s; }
+  .fsoc:hover { border-color: #7dd8f0; color: #7dd8f0; }
+  .foot-col-ttl { font-size: 11.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: white; margin-bottom: 20px; }
+  .foot-links { list-style: none; }
+  .foot-links li { margin-bottom: 12px; }
+  .foot-links a { font-size: 13px; color: rgba(255,255,255,0.38); text-decoration: none; transition: color 0.25s; }
+  .foot-links a:hover { color: #7dd8f0; }
+  .foot-btm { display: flex; justify-content: space-between; align-items: center; }
+  .foot-copy { font-size: 12px; color: rgba(255,255,255,0.23); }
+  .foot-legal { display: flex; gap: 24px; }
+  .foot-legal a { font-size: 12px; color: rgba(255,255,255,0.23); text-decoration: none; }
+  .foot-legal a:hover { color: white; }
+
+  /* ── SCROLL REVEAL ── */
+  .sr { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .sr.in { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.08s; } .d2 { transition-delay: 0.16s; } .d3 { transition-delay: 0.24s; } .d4 { transition-delay: 0.32s; }
+
+  /* responsive */
+  @media (max-width: 1100px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-hero { padding: 60px 40px; }
+    .hero-visual { display: none; }
+    section { padding: 72px 40px; }
+    .breadcrumb-bar { padding: 14px 40px; }
+    .mission-grid, .why-grid { grid-template-columns: 1fr; gap: 48px; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .cta-section { padding: 72px 40px; }
+    footer { padding: 48px 40px 28px; }
+  }
+  @media (max-width: 700px) {
+    .hero-title { font-size: 38px; }
+    .section-title { font-size: 32px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .mission-pillars { grid-template-columns: 1fr; }
+    .cta-title { font-size: 32px; }
+    .foot-grid { grid-template-columns: 1fr; }
+    .foot-btm { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon-wrap">
+      <img class="logo-hbird" src="assets/logo.png" alt="Blu-I-Vitality Lounge">
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="service.html">Services</a></li>
+    <li><a href="#membership">Membership</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="#booking" class="nav-book">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+      <rect x="3" y="4" width="18" height="18" rx="2.5"/>
+      <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+    </svg>
+    Book Now
+  </a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <a href="index.html" class="bc-link">Home</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current">About Us</span>
+</div>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">About Blu-I-Vitality Lounge</div>
+    <h1 class="hero-title">
+      Your Health,<br><em>Our Priority</em>
+    </h1>
+    <p class="hero-desc">
+      We are a holistic wellness clinic dedicated to restoring optimal health and vitality by treating the root cause of illness — not just the symptoms. Through education, lifestyle modification, and evidence-informed therapies, we empower your body's innate healing capacity.
+    </p>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-stat">
+      <div class="hero-stat-num">10+</div>
+      <div class="hero-stat-lbl">Therapies</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">100%</div>
+      <div class="hero-stat-lbl">Root-Cause Focus</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">∞</div>
+      <div class="hero-stat-lbl">Ongoing Support</div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION / VISION -->
+<section class="mission-section">
+  <div class="mission-grid">
+    <div class="mission-visual sr">
+      <div class="mission-card-stack">
+        <div class="mcard mcard-main">
+          <div class="mcard-pill">🎯 Our Mission</div>
+          <div class="mcard-ttl">Restore. Empower. Heal.</div>
+          <p class="mcard-txt">
+            The primary aim of our clinic is to restore optimal health and vitality by treating the root cause of illness rather than symptoms. We focus on empowering patients through education, lifestyle modification and enhancing the body's innate self-healing capabilities.
+          </p>
+        </div>
+        <div class="mcard mcard-accent">
+          <div class="mcard-pill">🌿 Our Vision</div>
+          <div class="mcard-ttl">Whole-Person Wellness</div>
+          <p class="mcard-txt">
+            Integrating modern medical science with lifestyle, nutrition, and systems biology to support long-term wellness for every patient.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mission-content sr d1">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">A Sanctuary for <em>Holistic Health</em></h2>
+      <p style="margin-top:20px;">
+        At Blu-I-Vitality Lounge, we believe that true wellness goes beyond treating symptoms. Our integrative approach combines cutting-edge therapies with time-honoured healing traditions to address the full spectrum of physical and mental health.
+      </p>
+      <p>
+        Every patient is unique. We invest time understanding your health history, lifestyle, and goals before designing a personalised care pathway — because your journey to vitality should be as individual as you are.
+      </p>
+
+      <div class="mission-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">🔬</div>
+          <div class="pillar-ttl">Root-Cause Medicine</div>
+          <div class="pillar-txt">Identify and correct underlying causes, not just manage symptoms.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">📚</div>
+          <div class="pillar-ttl">Patient Education</div>
+          <div class="pillar-txt">We empower you with knowledge to make lasting health decisions.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🌱</div>
+          <div class="pillar-ttl">Lifestyle Modification</div>
+          <div class="pillar-txt">Sustainable change through diet, movement, and mindfulness.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">✨</div>
+          <div class="pillar-ttl">Innate Healing</div>
+          <div class="pillar-txt">Enhancing your body's own extraordinary capacity to heal itself.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-head sr">
+    <div>
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Our <em>Therapies</em></h2>
+      <p class="services-intro">A comprehensive range of evidence-informed, integrative therapies designed to restore balance and vitality from the inside out.</p>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card sr">
+      <div class="svc-icon-wrap"><span>💉</span></div>
+      <div class="svc-name">IV Nutrition Therapy</div>
+      <p class="svc-desc">Delivers vitamins, minerals and antioxidants directly into the bloodstream, bypassing the digestive system for 100% bioavailability and rapid energy boost.</p>
+      <span class="svc-tag">Fast Absorption</span>
+    </div>
+    <div class="svc-card sr d1">
+      <div class="svc-icon-wrap"><span>🫧</span></div>
+      <div class="svc-name">Ozone Therapy</div>
+      <p class="svc-desc">Medical-grade ozone (O₃) stimulates the immune system, treats infections, improves oxygen uptake and reduces inflammation — as gas, water, or oil.</p>
+      <span class="svc-tag">Immune Boost</span>
+    </div>
+    <div class="svc-card sr d2">
+      <div class="svc-icon-wrap"><span>🌬️</span></div>
+      <div class="svc-name">Hydrogen Therapy</div>
+      <p class="svc-desc">Molecular hydrogen (H₂) via inhalation or hydrogen-rich water/saline acts as a powerful antioxidant and anti-inflammatory agent for metabolic and neurological health.</p>
+      <span class="svc-tag">Antioxidant</span>
+    </div>
+    <div class="svc-card sr d3">
+      <div class="svc-icon-wrap"><span>🩸</span></div>
+      <div class="svc-name">PRP Therapy</div>
+      <p class="svc-desc">Platelet Rich Plasma — a minimally invasive procedure using your own blood to promote healing, tissue regeneration, hair restoration, and skin rejuvenation.</p>
+      <span class="svc-tag">Regenerative</span>
+    </div>
+    <div class="svc-card sr">
+      <div class="svc-icon-wrap"><span>💧</span></div>
+      <div class="svc-name">Colon Hydrotherapy</div>
+      <p class="svc-desc">A gentle water-based procedure to flush the large intestine, removing waste and toxins to improve digestive health, reduce bloating, and aid detoxification.</p>
+      <span class="svc-tag">Detox</span>
+    </div>
+    <div class="svc-card sr d1">
+      <div class="svc-icon-wrap"><span>🧖</span></div>
+      <div class="svc-name">Sauna Bath</div>
+      <p class="svc-desc">High-temperature sessions inducing deep sweating to improve vascular function, lower blood pressure, ease joint inflammation, and reduce cardiovascular risk.</p>
+      <span class="svc-tag">Relaxation</span>
+    </div>
+    <div class="svc-card sr d2">
+      <div class="svc-icon-wrap"><span>🪡</span></div>
+      <div class="svc-name">Acupuncture</div>
+      <p class="svc-desc">Traditional medicine technique inserting thin, sterile needles at specific body points to balance energy flow (Qi) and manage pain, migraines, infertility, and more.</p>
+      <span class="svc-tag">Pain Relief</span>
+    </div>
+    <div class="svc-card sr d3">
+      <div class="svc-icon-wrap"><span>🧘</span></div>
+      <div class="svc-name">Yoga Therapy</div>
+      <p class="svc-desc">Tailored postures (asanas), breathing techniques (pranayamas) and meditation to improve physical and mental health, stress reduction, and heart health.</p>
+      <span class="svc-tag">Mind & Body</span>
+    </div>
+    <div class="svc-card sr">
+      <div class="svc-icon-wrap"><span>🥗</span></div>
+      <div class="svc-name">Diet Counselling</div>
+      <p class="svc-desc">Personalised nutrition assessment, goal-setting, and tailored meal plans to guide better eating habits for disease management, weight control, and overall wellbeing.</p>
+      <span class="svc-tag">Nutrition</span>
+    </div>
+    <div class="svc-card sr d1">
+      <div class="svc-icon-wrap"><span>🌿</span></div>
+      <div class="svc-name">Functional Medicine</div>
+      <p class="svc-desc">Patient-centred, root cause-oriented medical approach integrating modern science with lifestyle, nutrition, and system biology for long-term wellness.</p>
+      <span class="svc-tag">Holistic</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US / FUNCTIONAL MEDICINE -->
+<section class="why-section">
+  <div class="why-grid">
+    <div class="why-content sr">
+      <div class="section-label">Our Approach</div>
+      <h2 class="section-title">Why <em>Functional Medicine</em> Works</h2>
+      <p style="margin-top:20px;">
+        Functional medicine is a patient-centred, root cause-oriented medical approach that focuses on identifying and correcting the underlying causes of disease rather than just suppressing symptoms. It integrates modern medical science with lifestyle, nutrition, and systems biology.
+      </p>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">1</div>
+          <div class="why-body">
+            <div class="why-ttl">Addresses Root Causes</div>
+            <div class="why-txt">We investigate why disease arises — toxins, poor sleep, food sensitivity, inflammation — not just what disease it is.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">2</div>
+          <div class="why-body">
+            <div class="why-ttl">Balances Hormones & Gut Health</div>
+            <div class="why-txt">Using standard medical tests alongside a deep understanding of each patient's innate healing capacity.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">3</div>
+          <div class="why-body">
+            <div class="why-ttl">Supports Long-Term Wellness</div>
+            <div class="why-txt">Our goal is to promote overall health and wellbeing by restoring balance and function across all of the body's systems.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">4</div>
+          <div class="why-body">
+            <div class="why-ttl">Personalised &amp; Collaborative</div>
+            <div class="why-txt">A whole-person approach that sees you as a partner — because your body knows how to heal, and we help it find the way.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-visual sr d1">
+      <div class="fm-diagram">
+        <div class="fm-center">
+          <div class="fm-center-icon">🩺</div>
+          <div class="fm-center-lbl">Functional<br>Medicine</div>
+        </div>
+        <div class="fm-petals">
+          <div class="fm-petal">
+            <div class="fm-petal-icon">👤</div>
+            <div class="fm-petal-ttl">Patient Centered</div>
+            <div class="fm-petal-txt">Your health story matters most</div>
+          </div>
+          <div class="fm-petal">
+            <div class="fm-petal-icon">🔍</div>
+            <div class="fm-petal-ttl">Root Cause</div>
+            <div class="fm-petal-txt">Find what's driving the disease</div>
+          </div>
+          <div class="fm-petal">
+            <div class="fm-petal-icon">🧬</div>
+            <div class="fm-petal-ttl">Systems Biology</div>
+            <div class="fm-petal-txt">Body as an interconnected whole</div>
+          </div>
+          <div class="fm-petal">
+            <div class="fm-petal-icon">🤝</div>
+            <div class="fm-petal-ttl">Collaborative</div>
+            <div class="fm-petal-txt">We heal together, as partners</div>
+          </div>
+          <div class="fm-petal">
+            <div class="fm-petal-icon">🎯</div>
+            <div class="fm-petal-ttl">Personalised</div>
+            <div class="fm-petal-txt">No two patients are the same</div>
+          </div>
+          <div class="fm-petal">
+            <div class="fm-petal-icon">🌱</div>
+            <div class="fm-petal-ttl">Whole-Person</div>
+            <div class="fm-petal-txt">Mind, body, spirit, and lifestyle</div>
+          </div>
+        </div>
+        <div class="fm-quote">
+          "Your body knows how to heal — functional medicine helps it find the way."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="team-head sr">
+    <div class="section-label">Our People</div>
+    <h2 class="section-title">Meet the <em>Team</em></h2>
+    <p class="team-sub">Our multidisciplinary team of practitioners brings together expertise across integrative medicine, nutrition, physical therapy, and traditional healing arts.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card sr">
+      <div class="team-avatar">👨‍⚕️</div>
+      <div class="team-name">Dr. Founder</div>
+      <div class="team-role">Functional Medicine Physician</div>
+      <p class="team-bio">Specialist in root-cause medicine, integrating conventional diagnostics with personalised wellness protocols for lasting health transformation.</p>
+    </div>
+    <div class="team-card sr d1">
+      <div class="team-avatar">👩‍⚕️</div>
+      <div class="team-name">Wellness Specialist</div>
+      <div class="team-role">IV Therapy &amp; Nutrition</div>
+      <p class="team-bio">Expert in intravenous nutrition therapy and diet counselling, creating tailored nutritional plans and IV protocols for every patient's needs.</p>
+    </div>
+    <div class="team-card sr d2">
+      <div class="team-avatar">🧘</div>
+      <div class="team-name">Holistic Therapist</div>
+      <div class="team-role">Yoga &amp; Acupuncture</div>
+      <p class="team-bio">Certified yoga therapist and acupuncturist specialising in pain management, stress reduction, and mind-body integration through traditional healing techniques.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-label">Start Your Journey</div>
+    <h2 class="cta-title">Ready to Restore Your <em>Vitality?</em></h2>
+    <p class="cta-desc">Book a consultation today and let our team design a personalised wellness pathway that treats the root of your health challenges — not just the surface.</p>
+    <div class="cta-btns">
+      <a href="#booking" class="btn-primary">Book a Consultation</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand"><span class="blu">Blu</span>-I-Vitality</div>
+      <div class="foot-brand-sub">Lounge</div>
+      <p class="foot-desc">Your sanctuary for hydration, relaxation, and holistic wellness therapies designed to refresh your body, mind, and spirit.</p>
+      <div class="foot-socials">
+        <a href="#" class="fsoc">f</a>
+        <a href="#" class="fsoc">in</a>
+        <a href="#" class="fsoc">ig</a>
+        <a href="#" class="fsoc">yt</a>
+      </div>
+    </div>
+    <div>
+      <div class="foot-col-ttl">Services</div>
+      <ul class="foot-links">
+        <li><a href="#">IV Therapy</a></li>
+        <li><a href="#">Ozone Therapy</a></li>
+        <li><a href="#">Hydrogen Therapy</a></li>
+        <li><a href="#">PRP Therapy</a></li>
+        <li><a href="#">Colon Hydrotherapy</a></li>
+        <li><a href="#">Sauna Bath</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-ttl">Company</div>
+      <ul class="foot-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Membership</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-ttl">Contact</div>
+      <ul class="foot-links">
+        <li><a href="#">📍 176 /2, 4th Floor, Renaissance Terrace, near, Thirugnanasambandam Rd, opp. Bishop Appasamy College of Arts & Science, Race Course, Gopalapuram, Coimbatore, Tamil Nadu 641018</a></li>
+        <li><a href="#">📞 (555) 123-4567</a></li>
+        <li><a href="#">✉️ hello@bluvitality.com</a></li>
+        <li><a href="#">Mon–Sat: 8am – 8pm</a></li>
+        <li><a href="#">Sunday: 10am – 5pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <div class="foot-copy">© 2026 Blu-I-Vitality Lounge. All rights reserved.</div>
+    <div class="foot-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav shadow on scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 20
+      ? '0 4px 28px rgba(26,58,140,0.1)'
+      : '0 2px 20px rgba(26,58,140,0.06)';
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.sr').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

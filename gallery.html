@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Blu-I-Vitality Lounge</title>
+<favicon href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #1a3a8c;
+    --navy-dark:  #102060;
+    --blue:       #2563b8;
+    --teal:       #18b8d0;
+    --teal-light: #e0f7fb;
+    --sky-pale:   #f5faff;
+    --white:      #ffffff;
+    --text-dark:  #1a2a4a;
+    --text-mid:   #4a6080;
+    --text-light: #7a9ab8;
+    --border:     rgba(200,220,240,0.38);
+  }
+
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Nunito',sans-serif; font-weight:300; background:var(--white); color:var(--text-dark); overflow-x:hidden; }
+
+  /* ── NAVBAR ── */
+  nav {
+    position:sticky; top:0; z-index:999;
+    background:rgba(255,255,255,0.97); backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(200,220,240,0.25);
+    box-shadow:0 2px 20px rgba(26,58,140,0.06);
+    height:74px; display:flex; align-items:center; padding:0 44px;
+  }
+  .nav-logo {
+    display:flex; align-items:center; text-decoration:none;
+    flex-shrink:0; margin-right:44px; transform:translateY(-6px);
+    transition:opacity .2s;
+  }
+  .nav-logo:hover { opacity:.85; }
+  .logo-icon-wrap { display:flex; align-items:center; justify-content:center; }
+  .logo-hbird { height:76px; width:auto; object-fit:contain; display:block; }
+  .logo-txt-wrap { display:flex; flex-direction:column; line-height:1; }
+  .logo-main { font-family:'Great Vibes',cursive; font-size:27px; color:var(--navy); }
+  .logo-main .blu { color:var(--blue); }
+  .logo-sub { font-size:10px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--text-light); margin-top:2px; }
+  .nav-links { display:flex; list-style:none; gap:4px; flex:1; justify-content:center; align-items:center; }
+  .nav-links a { font-size:14.5px; font-weight:500; color:var(--text-mid); text-decoration:none; padding:6px 11px; border-radius:6px; transition:color .2s; white-space:nowrap; position:relative; }
+  .nav-links a.active { color:var(--navy); font-weight:700; }
+  .nav-links a.active::after { content:''; position:absolute; bottom:-3px; left:11px; right:11px; height:2.5px; background:var(--blue); border-radius:2px; }
+  .nav-links a:hover { color:var(--blue); }
+  .nav-book {
+    display:flex; align-items:center; gap:8px;
+    background:linear-gradient(135deg,#2563b8,#1a3a8c); color:white!important;
+    font-size:14.5px; font-weight:700; padding:10px 24px; border-radius:50px;
+    text-decoration:none; box-shadow:0 6px 22px rgba(37,99,184,0.38);
+    transition:all .25s; white-space:nowrap; flex-shrink:0; margin-left:8px;
+  }
+  .nav-book:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(37,99,184,0.48); }
+  .nav-book svg { width:15px; height:15px; }
+
+  /* ── HERO ── */
+  .hero {
+    position:relative; min-height:400px;
+    background:linear-gradient(135deg,#0d2460 0%,#1a3a8c 38%,#1a6bc2 72%,#18b8d0 100%);
+    display:flex; align-items:center; padding:80px; overflow:hidden;
+  }
+  .orb { position:absolute; border-radius:50%; filter:blur(80px); opacity:.16; pointer-events:none; }
+  .orb1 { width:520px; height:520px; background:#18b8d0; top:-200px; right:-60px; }
+  .orb2 { width:360px; height:360px; background:#6ac8f8; bottom:-140px; left:100px; }
+
+  /* floating polaroids */
+  .hero-polaroids {
+    position:absolute; right:80px; top:50%; transform:translateY(-50%);
+    width:340px; height:300px; z-index:2;
+  }
+  .polaroid {
+    position:absolute; background:white; padding:10px 10px 32px;
+    border-radius:4px; box-shadow:0 16px 48px rgba(0,0,0,.25);
+    width:150px;
+  }
+  .polaroid-img { width:100%; border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:36px; }
+  .pol1 { transform:rotate(-8deg); top:0; left:0; }
+  .pol2 { transform:rotate(5deg); top:40px; left:110px; }
+  .pol3 { transform:rotate(-3deg); top:130px; left:50px; }
+  .polaroid-cap { font-size:11px; color:var(--text-mid); text-align:center; margin-top:6px; }
+
+  .hero-content { position:relative; z-index:2; max-width:580px; }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22);
+    color:#a8dff5; font-size:11.5px; font-weight:700; letter-spacing:.2em;
+    text-transform:uppercase; padding:6px 18px; border-radius:50px; margin-bottom:26px; backdrop-filter:blur(8px);
+  }
+  .hero-badge::before { content:''; width:6px; height:6px; background:#18b8d0; border-radius:50%; }
+  .hero-title { font-family:'Playfair Display',serif; font-size:54px; font-weight:700; color:white; line-height:1.12; margin-bottom:20px; }
+  .hero-title em { font-style:italic; color:#7dd8f0; }
+  .hero-desc { font-size:16.5px; color:rgba(255,255,255,.78); line-height:1.8; max-width:480px; margin-bottom:32px; }
+  .hero-stats { display:flex; gap:32px; }
+  .hstat-num { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:white; }
+  .hstat-lbl { font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-top:2px; }
+
+  /* ── BREADCRUMB ── */
+  .bc-bar { background:var(--sky-pale); border-bottom:1px solid var(--border); padding:14px 80px; display:flex; align-items:center; gap:8px; }
+  .bc-link { font-size:13px; color:var(--text-light); text-decoration:none; }
+  .bc-link:hover { color:var(--blue); }
+  .bc-sep { font-size:13px; color:var(--text-light); }
+  .bc-cur { font-size:13px; font-weight:700; color:var(--navy); }
+
+  /* ── FILTER BAR ── */
+  .filter-bar {
+    position:sticky; top:74px; z-index:90;
+    background:rgba(255,255,255,.96); backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+    padding:18px 80px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+  }
+  .filter-label { font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--text-light); flex-shrink:0; }
+  .filters { display:flex; gap:8px; flex-wrap:wrap; flex:1; }
+  .filter-btn {
+    padding:8px 18px; border-radius:50px; font-family:'Nunito',sans-serif;
+    font-size:13.5px; font-weight:600; cursor:pointer; transition:all .22s;
+    border:1.5px solid var(--border); background:white; color:var(--text-mid);
+  }
+  .filter-btn:hover { border-color:rgba(37,99,184,.35); color:var(--navy); }
+  .filter-btn.active {
+    background:linear-gradient(135deg,#2563b8,#1a3a8c); color:white;
+    border-color:transparent; box-shadow:0 4px 16px rgba(37,99,184,.35);
+  }
+  .filter-count {
+    margin-left:auto; font-size:13px; color:var(--text-light);
+    white-space:nowrap; flex-shrink:0;
+  }
+  .filter-count span { font-weight:700; color:var(--navy); }
+
+  /* ── GALLERY SECTION ── */
+  .gallery-section { padding:56px 80px 96px; }
+
+  /* Masonry via CSS columns */
+  .masonry {
+    column-count:3; column-gap:20px;
+  }
+  .gallery-item {
+    break-inside:avoid; margin-bottom:20px;
+    border-radius:20px; overflow:hidden;
+    position:relative; cursor:pointer;
+    transition:transform .3s, box-shadow .3s;
+  }
+  .gallery-item:hover { transform:translateY(-6px); box-shadow:0 24px 60px rgba(26,58,140,.18); }
+  .gallery-item:hover .gi-overlay { opacity:1; }
+  .gallery-item:hover .gi-zoom { transform:scale(1) rotate(0deg); opacity:1; }
+  .gallery-item.hidden { display:none; }
+
+  /* placeholder image fills */
+  .gi-img {
+    width:100%; display:block;
+    position:relative; overflow:hidden;
+  }
+  .gi-img-inner {
+    width:100%; display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .gi-icon { font-size:52px; position:relative; z-index:2; }
+  .gi-pattern {
+    position:absolute; inset:0; opacity:.06;
+    background-image:radial-gradient(circle,white 1px,transparent 1px);
+    background-size:20px 20px;
+  }
+
+  /* overlay */
+  .gi-overlay {
+    position:absolute; inset:0; border-radius:20px;
+    background:linear-gradient(to top, rgba(10,20,60,.72) 0%, rgba(10,20,60,.08) 60%, transparent 100%);
+    opacity:0; transition:opacity .3s;
+    display:flex; flex-direction:column; justify-content:flex-end; padding:22px;
+  }
+  .gi-ttl { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:white; margin-bottom:4px; }
+  .gi-cat { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.7); }
+  .gi-zoom {
+    position:absolute; top:14px; right:14px;
+    width:36px; height:36px; border-radius:10px; background:rgba(255,255,255,.2);
+    backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.3);
+    display:flex; align-items:center; justify-content:center; font-size:16px;
+    transform:scale(0.7) rotate(12deg); opacity:0; transition:all .3s;
+  }
+
+  /* category badge */
+  .gi-badge {
+    position:absolute; top:12px; left:12px;
+    font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    padding:4px 12px; border-radius:50px;
+    backdrop-filter:blur(8px);
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display:none; position:fixed; inset:0; z-index:9999;
+    background:rgba(8,16,50,.88); backdrop-filter:blur(12px);
+    align-items:center; justify-content:center; padding:40px;
+  }
+  .lightbox.open { display:flex; }
+  .lb-inner {
+    position:relative; max-width:860px; width:100%;
+    animation:lbIn .3s ease;
+  }
+  @keyframes lbIn { from{opacity:0;transform:scale(.94) translateY(16px)} to{opacity:1;transform:scale(1) translateY(0)} }
+  .lb-card {
+    background:white; border-radius:28px; overflow:hidden;
+    box-shadow:0 48px 120px rgba(0,0,0,.5);
+    display:grid; grid-template-columns:1.1fr 1fr;
+  }
+  .lb-img {
+    min-height:400px; display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+  }
+  .lb-icon { font-size:100px; position:relative; z-index:2; filter:drop-shadow(0 8px 24px rgba(0,0,0,.15)); }
+  .lb-content { padding:40px 36px; display:flex; flex-direction:column; justify-content:space-between; }
+  .lb-cat {
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:10.5px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--teal);
+    margin-bottom:14px;
+  }
+  .lb-cat::before { content:''; width:20px; height:2px; background:var(--teal); border-radius:2px; }
+  .lb-ttl { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--navy); line-height:1.25; margin-bottom:14px; }
+  .lb-desc { font-size:14px; color:var(--text-mid); line-height:1.8; flex:1; }
+  .lb-meta { margin-top:24px; padding-top:18px; border-top:1px solid var(--border); display:flex; gap:16px; }
+  .lb-meta-item { font-size:12px; color:var(--text-light); }
+  .lb-meta-item strong { display:block; font-size:13px; font-weight:700; color:var(--navy); margin-bottom:2px; }
+  .lb-actions { margin-top:24px; display:flex; gap:10px; }
+  .lb-book-btn {
+    flex:1; background:linear-gradient(135deg,#2563b8,#1a3a8c); color:white;
+    font-family:'Nunito',sans-serif; font-size:14px; font-weight:700;
+    padding:11px 20px; border-radius:50px; text-decoration:none; text-align:center;
+    box-shadow:0 6px 20px rgba(37,99,184,.38); transition:all .22s;
+  }
+  .lb-book-btn:hover { box-shadow:0 10px 28px rgba(37,99,184,.48); }
+  .lb-close {
+    position:absolute; top:-14px; right:-14px;
+    width:44px; height:44px; border-radius:50%;
+    background:white; border:none; cursor:pointer; font-size:18px;
+    box-shadow:0 8px 24px rgba(0,0,0,.25); transition:all .22s;
+    display:flex; align-items:center; justify-content:center; color:var(--navy);
+    z-index:10;
+  }
+  .lb-close:hover { background:var(--navy); color:white; transform:rotate(90deg); }
+  .lb-nav {
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:48px; height:48px; border-radius:50%;
+    background:rgba(255,255,255,.12); border:1.5px solid rgba(255,255,255,.28);
+    color:white; font-size:20px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:all .22s; backdrop-filter:blur(8px);
+  }
+  .lb-nav:hover { background:rgba(255,255,255,.24); border-color:rgba(255,255,255,.6); }
+  .lb-prev { left:-68px; }
+  .lb-next { right:-68px; }
+
+  /* ── INSTAGRAM STRIP ── */
+  .insta-section { background:var(--sky-pale); padding:72px 80px; text-align:center; border-top:1px solid var(--border); }
+  .insta-ttl-row { display:flex; flex-direction:column; align-items:center; margin-bottom:40px; }
+  .section-label {
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:11px; font-weight:700; letter-spacing:.26em; text-transform:uppercase; color:var(--teal); margin-bottom:14px;
+  }
+  .section-label::before { content:''; width:26px; height:2px; background:var(--teal); border-radius:2px; }
+  .section-title { font-family:'Playfair Display',serif; font-size:38px; font-weight:700; color:var(--navy); }
+  .section-title em { font-style:italic; color:var(--blue); }
+  .section-sub { font-size:15px; color:var(--text-mid); margin-top:10px; }
+  .insta-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:32px; }
+  .insta-cell {
+    aspect-ratio:1; border-radius:14px; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    font-size:28px; cursor:pointer; position:relative;
+    transition:transform .25s, box-shadow .25s;
+  }
+  .insta-cell:hover { transform:scale(1.05); box-shadow:0 12px 32px rgba(26,58,140,.15); }
+  .insta-cell::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(135deg,rgba(131,58,180,.0),rgba(253,29,29,.0));
+    transition:background .25s;
+  }
+  .insta-cell:hover::after { background:linear-gradient(135deg,rgba(131,58,180,.25),rgba(253,29,29,.15)); }
+  .insta-handle {
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(135deg,#2563b8,#1a3a8c); color:white;
+    font-family:'Nunito',sans-serif; font-size:14.5px; font-weight:700;
+    padding:12px 28px; border-radius:50px; text-decoration:none;
+    box-shadow:0 6px 22px rgba(37,99,184,.38); transition:all .25s;
+  }
+  .insta-handle:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(37,99,184,.46); }
+
+  /* ── CTA ── */
+  .cta-section {
+    background:linear-gradient(135deg,#0d2460 0%,#1a3a8c 40%,#1a6bc2 80%,#18b8d0 100%);
+    padding:96px 80px; text-align:center; position:relative; overflow:hidden;
+  }
+  .cta-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 60% 50%,rgba(24,184,208,.25) 0%,transparent 70%); }
+  .cta-inner { position:relative; z-index:2; max-width:580px; margin:0 auto; }
+  .cta-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22);
+    color:#a8dff5; font-size:11px; font-weight:700; letter-spacing:.2em;
+    text-transform:uppercase; padding:5px 16px; border-radius:50px; margin-bottom:26px;
+  }
+  .cta-title { font-family:'Playfair Display',serif; font-size:42px; font-weight:700; color:white; line-height:1.15; margin-bottom:18px; }
+  .cta-title em { font-style:italic; color:#7dd8f0; }
+  .cta-desc { font-size:16px; color:rgba(255,255,255,.75); line-height:1.8; margin-bottom:40px; }
+  .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .btn-white { background:white; color:var(--navy); font-family:'Nunito',sans-serif; font-size:15px; font-weight:700; padding:14px 32px; border-radius:50px; text-decoration:none; box-shadow:0 8px 28px rgba(0,0,0,.2); transition:all .25s; }
+  .btn-white:hover { transform:translateY(-2px); box-shadow:0 14px 40px rgba(0,0,0,.28); }
+  .btn-ghost { background:transparent; color:white; border:2px solid rgba(255,255,255,.45); font-family:'Nunito',sans-serif; font-size:15px; font-weight:700; padding:14px 32px; border-radius:50px; text-decoration:none; transition:all .25s; }
+  .btn-ghost:hover { background:rgba(255,255,255,.12); border-color:white; }
+
+  /* ── FOOTER ── */
+  footer { background:#0b1a40; color:rgba(255,255,255,.65); padding:64px 80px 36px; }
+  .foot-grid { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:52px; margin-bottom:52px; padding-bottom:52px; border-bottom:1px solid rgba(255,255,255,.07); }
+  .foot-brand { font-family:'Great Vibes',cursive; font-size:26px; color:white; margin-bottom:3px; }
+  .foot-brand .blu { color:#7dd8f0; }
+  .foot-brand-sub { font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:rgba(255,255,255,.33); margin-bottom:18px; }
+  .foot-desc { font-size:13px; line-height:1.8; color:rgba(255,255,255,.38); max-width:240px; margin-bottom:24px; }
+  .foot-socials { display:flex; gap:9px; }
+  .fsoc { width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.35); text-decoration:none; font-size:11px; font-weight:700; transition:all .25s; }
+  .fsoc:hover { border-color:#7dd8f0; color:#7dd8f0; }
+  .foot-col-ttl { font-size:11.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:white; margin-bottom:20px; }
+  .foot-links { list-style:none; }
+  .foot-links li { margin-bottom:12px; }
+  .foot-links a { font-size:13px; color:rgba(255,255,255,.38); text-decoration:none; transition:color .25s; }
+  .foot-links a:hover { color:#7dd8f0; }
+  .foot-btm { display:flex; justify-content:space-between; align-items:center; }
+  .foot-copy { font-size:12px; color:rgba(255,255,255,.23); }
+  .foot-legal { display:flex; gap:24px; }
+  .foot-legal a { font-size:12px; color:rgba(255,255,255,.23); text-decoration:none; }
+  .foot-legal a:hover { color:white; }
+
+  /* ── SCROLL REVEAL ── */
+  .sr { opacity:0; transform:translateY(24px); transition:opacity .75s ease,transform .75s ease; }
+  .sr.in { opacity:1; transform:translateY(0); }
+  .d1{transition-delay:.07s;} .d2{transition-delay:.14s;} .d3{transition-delay:.21s;} .d4{transition-delay:.28s;}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:1100px){
+    .masonry { column-count:2; }
+    .hero-polaroids { display:none; }
+    .insta-grid { grid-template-columns:repeat(3,1fr); }
+    .lb-card { grid-template-columns:1fr; }
+    .lb-img { min-height:260px; }
+    .lb-prev { left:-56px; } .lb-next { right:-56px; }
+  }
+  @media(max-width:900px){
+    nav { padding:0 24px; }
+    .nav-links { display:none; }
+    .hero { padding:60px 40px; }
+    .hero-title { font-size:40px; }
+    .bc-bar, .filter-bar { padding:14px 40px; }
+    .gallery-section, .insta-section { padding:56px 40px; }
+    .cta-section { padding:72px 40px; }
+    footer { padding:48px 40px 28px; }
+    .foot-grid { grid-template-columns:1fr 1fr; gap:36px; }
+  }
+  @media(max-width:640px){
+    .masonry { column-count:1; }
+    .hero-title { font-size:32px; }
+    .insta-grid { grid-template-columns:repeat(3,1fr); }
+    .cta-title { font-size:30px; }
+    .lb-prev,.lb-next { display:none; }
+    .lb-inner { padding:0 12px; }
+    .foot-grid { grid-template-columns:1fr; }
+    .foot-btm { flex-direction:column; gap:12px; text-align:center; }
+    .filter-bar { padding:14px 20px; gap:10px; }
+    .gallery-section { padding:40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ NAVBAR ════════ -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon-wrap">
+      <img class="logo-hbird" src="assets/logo.png" alt="Blu-I-Vitality Lounge">
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="service.html">Services</a></li>
+    <li><a href="#">Membership</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html#booking-form" class="nav-book">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+      <rect x="3" y="4" width="18" height="18" rx="2.5"/>
+      <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+    </svg>
+    Book Now
+  </a>
+</nav>
+
+<!-- ════════ BREADCRUMB ════════ -->
+<div class="bc-bar">
+  <a href="index.html" class="bc-link">Home</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-cur">Gallery</span>
+</div>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Our Gallery</div>
+    <h1 class="hero-title">A Glimpse Into<br><em>Our Sanctuary</em></h1>
+    <p class="hero-desc">Step inside Blu-I-Vitality Lounge — explore our state-of-the-art facilities, transformative therapies, and the warm, healing environment we've created just for you.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hstat-num">40+</div>
+        <div class="hstat-lbl">Photos</div>
+      </div>
+      <div>
+        <div class="hstat-num">7</div>
+        <div class="hstat-lbl">Categories</div>
+      </div>
+      <div>
+        <div class="hstat-num">10</div>
+        <div class="hstat-lbl">Therapies</div>
+      </div>
+    </div>
+  </div>
+  <!-- Floating polaroids -->
+  <div class="hero-polaroids" aria-hidden="true">
+    <div class="polaroid pol1">
+      <div class="polaroid-img" style="height:110px; background:linear-gradient(135deg,#e0f7fb,#b5d4f4);">💉</div>
+      <div class="polaroid-cap">IV Nutrition</div>
+    </div>
+    <div class="polaroid pol2">
+      <div class="polaroid-img" style="height:110px; background:linear-gradient(135deg,#faeeda,#f4c0d1);">🧘</div>
+      <div class="polaroid-cap">Yoga Therapy</div>
+    </div>
+    <div class="polaroid pol3">
+      <div class="polaroid-img" style="height:110px; background:linear-gradient(135deg,#eaf3de,#9fe1cb);">🌿</div>
+      <div class="polaroid-cap">Our Lounge</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FILTER BAR ════════ -->
+<div class="filter-bar" id="filterBar">
+  <span class="filter-label">Filter</span>
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all" onclick="filterGallery('all',this)">All</button>
+    <button class="filter-btn" data-filter="clinic" onclick="filterGallery('clinic',this)">🏥 Clinic & Facilities</button>
+    <button class="filter-btn" data-filter="iv" onclick="filterGallery('iv',this)">💉 IV Therapy</button>
+    <button class="filter-btn" data-filter="ozone" onclick="filterGallery('ozone',this)">🫧 Ozone & Hydrogen</button>
+    <button class="filter-btn" data-filter="wellness" onclick="filterGallery('wellness',this)">🧘 Wellness Therapies</button>
+    <button class="filter-btn" data-filter="team" onclick="filterGallery('team',this)">👩‍⚕️ Our Team</button>
+    <button class="filter-btn" data-filter="results" onclick="filterGallery('results',this)">✨ Results & Events</button>
+  </div>
+  <div class="filter-count">Showing <span id="visibleCount">24</span> photos</div>
+</div>
+
+<!-- ════════ GALLERY GRID ════════ -->
+<section class="gallery-section">
+  <div class="masonry" id="galleryGrid">
+
+    <!-- CLINIC & FACILITIES -->
+    <div class="gallery-item sr" data-cat="clinic" data-id="0" onclick="openLightbox(0)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#1a3a8c,#2563b8);">
+        <div class="gi-img-inner" style="height:260px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🏥</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(26,58,140,.7); color:#a8dff5;">Clinic</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Our Main Lounge</div>
+        <div class="gi-cat">Clinic & Facilities</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d1" data-cat="iv" data-id="1" onclick="openLightbox(1)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#106090,#1a99c8);">
+        <div class="gi-img-inner" style="height:200px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">💉</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(16,96,144,.75); color:#a8e4f5;">IV Therapy</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">IV Drip Station</div>
+        <div class="gi-cat">IV Nutrition Therapy</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d2" data-cat="wellness" data-id="2" onclick="openLightbox(2)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#6a1a8c,#b825c8);">
+        <div class="gi-img-inner" style="height:300px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🧘</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(106,26,140,.75); color:#e8a8f5;">Wellness</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Yoga Therapy Session</div>
+        <div class="gi-cat">Wellness Therapies</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr" data-cat="clinic" data-id="3" onclick="openLightbox(3)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#0d2460,#1a3a8c);">
+        <div class="gi-img-inner" style="height:220px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🛋️</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(13,36,96,.75); color:#a8c4f5;">Clinic</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Relaxation Lounge</div>
+        <div class="gi-cat">Clinic & Facilities</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d1" data-cat="ozone" data-id="4" onclick="openLightbox(4)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#1a5a4c,#18b890);">
+        <div class="gi-img-inner" style="height:240px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🫧</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(26,90,76,.75); color:#a8f5e0;">Ozone</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Ozone Therapy Suite</div>
+        <div class="gi-cat">Ozone & Hydrogen</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d2" data-cat="team" data-id="5" onclick="openLightbox(5)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#2a1a6c,#6318d0);">
+        <div class="gi-img-inner" style="height:280px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">👩‍⚕️</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(42,26,108,.75); color:#c8a8f5;">Team</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Lead Practitioner</div>
+        <div class="gi-cat">Our Team</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr" data-cat="iv" data-id="6" onclick="openLightbox(6)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#1a4a8c,#18a0d0);">
+        <div class="gi-img-inner" style="height:210px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🧪</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(26,74,140,.75); color:#a8dff5;">IV Therapy</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Custom Vitamin Blend</div>
+        <div class="gi-cat">IV Nutrition Therapy</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d1" data-cat="wellness" data-id="7" onclick="openLightbox(7)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#7a3a0a,#c87020);">
+        <div class="gi-img-inner" style="height:260px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🧖</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(122,58,10,.75); color:#f5caa8;">Wellness</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Premium Sauna Suite</div>
+        <div class="gi-cat">Wellness Therapies</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d2" data-cat="results" data-id="8" onclick="openLightbox(8)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#1a6c2a,#28a845);">
+        <div class="gi-img-inner" style="height:220px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">✨</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(26,108,42,.75); color:#a8f5b8;">Results</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Skin Rejuvenation Results</div>
+        <div class="gi-cat">Results & Events</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr" data-cat="clinic" data-id="9" onclick="openLightbox(9)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#18b8d0,#6ac8f8);">
+        <div class="gi-img-inner" style="height:240px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🏋️</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(24,184,208,.75); color:#052a38;">Clinic</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Treatment Rooms</div>
+        <div class="gi-cat">Clinic & Facilities</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d1" data-cat="wellness" data-id="10" onclick="openLightbox(10)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#2a1a6c,#4818c8);">
+        <div class="gi-img-inner" style="height:200px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🪡</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(42,26,108,.75); color:#c8a8f5;">Wellness</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Acupuncture Session</div>
+        <div class="gi-cat">Wellness Therapies</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d2" data-cat="team" data-id="11" onclick="openLightbox(11)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#1a3a8c,#2563b8);">
+        <div class="gi-img-inner" style="height:270px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">👨‍⚕️</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(26,58,140,.75); color:#a8c4f5;">Team</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Functional Medicine Doctor</div>
+        <div class="gi-cat">Our Team</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr" data-cat="ozone" data-id="12" onclick="openLightbox(12)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#106090,#2590c0);">
+        <div class="gi-img-inner" style="height:230px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🌬️</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(16,96,144,.75); color:#a8dff5;">Hydrogen</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Hydrogen Inhalation Room</div>
+        <div class="gi-cat">Ozone & Hydrogen</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d1" data-cat="results" data-id="13" onclick="openLightbox(13)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#8c1a3a,#c22563);">
+        <div class="gi-img-inner" style="height:260px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🩸</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(140,26,58,.75); color:#f5a8c0;">Results</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">PRP Hair Restoration</div>
+        <div class="gi-cat">Results & Events</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d2" data-cat="clinic" data-id="14" onclick="openLightbox(14)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#0e5c4a,#18b890);">
+        <div class="gi-img-inner" style="height:220px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">💧</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(14,92,74,.75); color:#a8f5e0;">Clinic</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Hydrotherapy Suite</div>
+        <div class="gi-cat">Clinic & Facilities</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr" data-cat="wellness" data-id="15" onclick="openLightbox(15)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#1a6c2a,#50c848);">
+        <div class="gi-img-inner" style="height:250px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🥗</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(26,108,42,.75); color:#a8f5b8;">Wellness</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Diet Counselling Suite</div>
+        <div class="gi-cat">Wellness Therapies</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d1" data-cat="team" data-id="16" onclick="openLightbox(16)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#6a1a8c,#c830b8);">
+        <div class="gi-img-inner" style="height:200px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🧬</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(106,26,140,.75); color:#e8a8f5;">Team</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Holistic Therapist</div>
+        <div class="gi-cat">Our Team</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d2" data-cat="results" data-id="17" onclick="openLightbox(17)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#18b8d0,#1a3a8c);">
+        <div class="gi-img-inner" style="height:240px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🏆</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(24,60,160,.75); color:#a8c8f5;">Events</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Wellness Open Day 2025</div>
+        <div class="gi-cat">Results & Events</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr" data-cat="iv" data-id="18" onclick="openLightbox(18)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#0d2460,#18b8d0);">
+        <div class="gi-img-inner" style="height:200px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">⚗️</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(13,36,96,.75); color:#a8dff5;">IV Therapy</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Myers Cocktail Prep</div>
+        <div class="gi-cat">IV Nutrition Therapy</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d1" data-cat="clinic" data-id="19" onclick="openLightbox(19)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#1a3a8c,#6ac8f8);">
+        <div class="gi-img-inner" style="height:250px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🌸</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(26,58,140,.75); color:#a8dff5;">Clinic</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Reception & Welcome Area</div>
+        <div class="gi-cat">Clinic & Facilities</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d2" data-cat="ozone" data-id="20" onclick="openLightbox(20)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#0e5c4a,#50c880);">
+        <div class="gi-img-inner" style="height:220px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🫀</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(14,92,74,.75); color:#a8f5e0;">Ozone</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Ozone Blood Treatment</div>
+        <div class="gi-cat">Ozone & Hydrogen</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr" data-cat="results" data-id="21" onclick="openLightbox(21)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#7a3a0a,#f08020);">
+        <div class="gi-img-inner" style="height:230px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🌟</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(122,58,10,.75); color:#f5caa8;">Results</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Patient Transformation</div>
+        <div class="gi-cat">Results & Events</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d1" data-cat="wellness" data-id="22" onclick="openLightbox(22)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#8c1a3a,#d070a0);">
+        <div class="gi-img-inner" style="height:260px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🌿</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(140,26,58,.75); color:#f5a8c0;">Wellness</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Functional Medicine Consult</div>
+        <div class="gi-cat">Wellness Therapies</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+    <div class="gallery-item sr d2" data-cat="team" data-id="23" onclick="openLightbox(23)">
+      <div class="gi-img" style="background:linear-gradient(145deg,#1a3a8c,#18b8d0);">
+        <div class="gi-img-inner" style="height:210px;">
+          <div class="gi-pattern"></div>
+          <span class="gi-icon">🤝</span>
+        </div>
+      </div>
+      <div class="gi-badge" style="background:rgba(26,58,140,.75); color:#a8dff5;">Team</div>
+      <div class="gi-overlay">
+        <div class="gi-ttl">Team Wellness Day</div>
+        <div class="gi-cat">Our Team</div>
+      </div>
+      <div class="gi-zoom">🔍</div>
+    </div>
+
+  </div><!-- /.masonry -->
+
+  <!-- Load more -->
+  <div style="text-align:center; margin-top:48px;">
+    <button id="loadMoreBtn" onclick="loadMore()" style="
+      background:transparent; border:2px solid var(--blue); color:var(--blue);
+      font-family:'Nunito',sans-serif; font-size:14.5px; font-weight:700;
+      padding:13px 36px; border-radius:50px; cursor:pointer; transition:all .25s;
+    " onmouseover="this.style.background='var(--blue)';this.style.color='white'"
+       onmouseout="this.style.background='transparent';this.style.color='var(--blue)'">
+      Load More Photos
+    </button>
+  </div>
+</section>
+
+<!-- ════════ INSTAGRAM ════════ -->
+<section class="insta-section sr">
+  <div class="insta-ttl-row">
+    <div class="section-label">Follow Along</div>
+    <h2 class="section-title">We're on <em>Instagram</em></h2>
+    <p class="section-sub">See our latest treatments, tips, and behind-the-scenes moments — follow us @bluvitality</p>
+  </div>
+  <div class="insta-grid">
+    <div class="insta-cell" style="background:linear-gradient(135deg,#e0f7fb,#b5d4f4);">💉</div>
+    <div class="insta-cell" style="background:linear-gradient(135deg,#faeeda,#f0c090);">🌿</div>
+    <div class="insta-cell" style="background:linear-gradient(135deg,#eaf3de,#9fe1cb);">🧘</div>
+    <div class="insta-cell" style="background:linear-gradient(135deg,#f4c0d1,#c8a8f5);">🧖</div>
+    <div class="insta-cell" style="background:linear-gradient(135deg,#b5d4f4,#a8f5e0);">🫧</div>
+    <div class="insta-cell" style="background:linear-gradient(135deg,#faeeda,#f5caa8);">🪡</div>
+  </div>
+  <a href="#" class="insta-handle">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    @bluvitality
+  </a>
+</section>
+
+<!-- ════════ CTA ════════ -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-badge">Experience It Yourself</div>
+    <h2 class="cta-title">Come See Our<br><em>Sanctuary</em> in Person</h2>
+    <p class="cta-desc">Photos only tell part of the story. Book a free tour of our clinic and discover the calm, healing environment we've designed with your wellbeing in mind.</p>
+    <div class="cta-btns">
+      <a href="contact.html#booking-form" class="btn-white">📅 Book a Visit</a>
+      <a href="services.html" class="btn-ghost">Our Therapies</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand"><span class="blu">Blu</span>-I-Vitality</div>
+      <div class="foot-brand-sub">Lounge</div>
+      <p class="foot-desc">Your sanctuary for hydration, relaxation, and holistic wellness therapies designed to refresh your body, mind, and spirit.</p>
+      <div class="foot-socials">
+        <a href="#" class="fsoc">f</a><a href="#" class="fsoc">in</a><a href="#" class="fsoc">ig</a><a href="#" class="fsoc">yt</a>
+      </div>
+    </div>
+    <div>
+      <div class="foot-col-ttl">Services</div>
+      <ul class="foot-links">
+        <li><a href="services.html#iv-therapy">IV Therapy</a></li>
+        <li><a href="services.html#ozone">Ozone Therapy</a></li>
+        <li><a href="services.html#hydrogen">Hydrogen Therapy</a></li>
+        <li><a href="services.html#prp">PRP Therapy</a></li>
+        <li><a href="services.html#sauna">Sauna Bath</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-ttl">Company</div>
+      <ul class="foot-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="#">Membership</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-ttl">Contact</div>
+      <ul class="foot-links">
+        <li><a href="#">📍 176 /2, 4th Floor, Renaissance Terrace, near, Thirugnanasambandam Rd, opp. Bishop Appasamy College of Arts & Science, Race Course, Gopalapuram, Coimbatore, Tamil Nadu 641018</a></li>
+        <li><a href="tel:5551234567">📞 (555) 123-4567</a></li>
+        <li><a href="mailto:hello@bluvitality.com">✉️ hello@bluvitality.com</a></li>
+        <li><a href="#">Mon–Sat: 8am – 8pm</a></li>
+        <li><a href="#">Sunday: 10am – 5pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <div class="foot-copy">© 2026 Blu-I-Vitality Lounge. All rights reserved.</div>
+    <div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies</a></div>
+  </div>
+</footer>
+
+<!-- ════════ LIGHTBOX ════════ -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOnBackdrop(event)">
+  <button class="lb-nav lb-prev" onclick="lbNavigate(-1)" aria-label="Previous">‹</button>
+  <div class="lb-inner">
+    <button class="lb-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+    <div class="lb-card" id="lbCard">
+      <!-- filled by JS -->
+    </div>
+  </div>
+  <button class="lb-nav lb-next" onclick="lbNavigate(1)" aria-label="Next">›</button>
+</div>
+
+<script>
+
+let currentIndex = 0;
+
+/* FILTER */
+function filterGallery(cat, btn) {
+
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.remove('active');
+  });
+
+  btn.classList.add('active');
+
+  const cards = document.querySelectorAll('.gallery-item');
+
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      card.classList.add('hidden');
+    }
+
+  });
+
+  document.getElementById('visibleCount').textContent = visibleCount;
+}
+
+/* LIGHTBOX */
+function openLightbox(index) {
+
+  currentIndex = index;
+
+  const item = items[index];
+
+  document.getElementById('lbCard').innerHTML = `
+  
+    <div class="lb-img" style="background:${item.bg}">
+      <div class="gi-pattern"></div>
+      <div class="lb-icon">${item.icon}</div>
+    </div>
+
+    <div class="lb-content">
+
+      <div>
+
+        <div class="lb-cat">${item.tag}</div>
+
+        <h2 class="lb-ttl">${item.title}</h2>
+
+        <p class="lb-desc">${item.desc}</p>
+
+        <div class="lb-meta">
+
+          <div class="lb-meta-item">
+            <strong>Location</strong>
+            ${item.location}
+          </div>
+
+          <div class="lb-meta-item">
+            <strong>Captured</strong>
+            ${item.date}
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="lb-actions">
+        <a href="contact.html#booking-form" class="lb-book-btn">
+          Book Consultation
+        </a>
+      </div>
+
+    </div>
+  `;
+
+  document.getElementById('lightbox').classList.add('open');
+
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+
+  document.getElementById('lightbox').classList.remove('open');
+
+  document.body.style.overflow = 'auto';
+}
+
+function closeLightboxOnBackdrop(e) {
+
+  if (e.target.id === 'lightbox') {
+    closeLightbox();
+  }
+
+}
+
+function lbNavigate(direction) {
+
+  currentIndex += direction;
+
+  if (currentIndex < 0) {
+    currentIndex = items.length - 1;
+  }
+
+  if (currentIndex >= items.length) {
+    currentIndex = 0;
+  }
+
+  openLightbox(currentIndex);
+}
+
+/* KEYBOARD */
+document.addEventListener('keydown', function(e) {
+
+  const lightbox = document.getElementById('lightbox');
+
+  if (!lightbox.classList.contains('open')) return;
+
+  if (e.key === 'Escape') {
+    closeLightbox();
+  }
+
+  if (e.key === 'ArrowRight') {
+    lbNavigate(1);
+  }
+
+  if (e.key === 'ArrowLeft') {
+    lbNavigate(-1);
+  }
+
+});
+
+/* SCROLL REVEAL */
+const srObserver = new IntersectionObserver(entries => {
+
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+    }
+
+  });
+
+}, {
+  threshold: 0.15
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  document.querySelectorAll('.sr').forEach(el => {
+    srObserver.observe(el);
+  });
+
+});
+
+/* NAVBAR SHADOW */
+window.addEventListener('scroll', () => {
+
+  const nav = document.getElementById('mainNav');
+
+  if (window.scrollY > 10) {
+
+    nav.style.boxShadow = '0 6px 24px rgba(26,58,140,.12)';
+
+  } else {
+
+    nav.style.boxShadow = '0 2px 20px rgba(26,58,140,0.06)';
+
+  }
+
+});
+
+/* LOAD MORE */
+function loadMore() {
+
+  const btn = document.getElementById('loadMoreBtn');
+
+  btn.innerHTML = 'All Photos Loaded';
+
+  btn.disabled = true;
+
+  btn.style.opacity = '0.6';
+
+  btn.style.cursor = 'not-allowed';
+}
+
+/* 3D HOVER */
+document.querySelectorAll('.gallery-item').forEach(card => {
+
+  card.addEventListener('mousemove', e => {
+
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -2;
+    const rotateY = ((x - centerX) / centerX) * 2;
+
+    card.style.transform =
+      `perspective(1000px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      translateY(-6px)`;
+
+  });
+
+  card.addEventListener('mouseleave', () => {
+
+    card.style.transform = 'translateY(0px)';
+
+  });
+
+});
+
+/* ACTIVE NAV */
+const currentPage = window.location.pathname.split('/').pop();
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+
+  const href = link.getAttribute('href');
+
+  if (href === currentPage) {
+    link.classList.add('active');
+  }
+
+});
+
+</script>
+
+</body>
+</html>
